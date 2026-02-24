@@ -1,0 +1,73 @@
+{
+  "name": "@kktestdev/kksort",
+  "version": "0.1.0",
+  "description": "Utilities TypeScript library",
+  "keywords": [],
+  "homepage": "https://github.com/Ink01101011/KKsort#readme",
+  "bugs": {
+    "url": "https://github.com/Ink01101011/KKsort/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ink01101011/KKsort.git"
+  },
+  "license": "ISC",
+  "author": "Ink01101011",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "jest": "^30.2.0",
+    "prettier": "^3.8.1",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/*.test.ts",
+      "**/*.spec.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts",
+      "!src/**/*.test.ts",
+      "!src/**/*.spec.ts"
+    ],
+    "coverageDirectory": "coverage",
+    "verbose": true,
+    "watchman": false
+  }
+}
