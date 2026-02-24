@@ -1,8 +1,24 @@
 {
   "name": "@kktestdev/kksort",
-  "version": "0.0.1",
-  "description": "Utilities TypeScript library",
-  "keywords": [],
+  "version": "1.0.0",
+  "description": "TypeScript sorting algorithms library with tree-shakable imports and full type safety",
+  "keywords": [
+    "sort",
+    "sorting",
+    "algorithm",
+    "algorithms",
+    "typescript",
+    "quicksort",
+    "mergesort",
+    "bubblesort",
+    "heapsort",
+    "insertionsort",
+    "selectionsort",
+    "tree-shaking",
+    "esm",
+    "typescript-library",
+    "data-structures"
+  ],
   "homepage": "https://github.com/Ink01101011/KKsort#readme",
   "bugs": {
     "url": "https://github.com/Ink01101011/KKsort/issues"
@@ -62,18 +78,23 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
-    "prepublishOnly": "npm run build",
     "format": "prettier --write src",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "prepublishOnly": "npm run build",
+    "pre-publish": "node scripts/pre-publish.js",
+    "validate": "npm run lint && npm run format:check && npm test && npm run build",
+    "check-size": "npm pack --dry-run"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
-    "eslint": "^8.56.0",
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "eslint": "^10.0.2",
     "jest": "^30.2.0",
     "prettier": "^3.8.1",
     "ts-jest": "^29.4.6",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.56.1"
   }
 }
