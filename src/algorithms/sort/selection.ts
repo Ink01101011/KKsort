@@ -46,24 +46,24 @@
  * // Top items move to beginning
  */
 function selectionSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
-    const n = arr.length;
+  const n = arr.length;
     
-    for (let i = 0; i < n - 1; i++) {
-        let minIndex = i;
+  for (let i = 0; i < n - 1; i++) {
+    let minIndex = i;
         
-        for (let j = i + 1; j < n; j++) {
-            const comparison = compareFn ? compareFn(arr[j], arr[minIndex]) : defaultCompare(arr[j], arr[minIndex]);
+    for (let j = i + 1; j < n; j++) {
+      const comparison = compareFn ? compareFn(arr[j], arr[minIndex]) : defaultCompare(arr[j], arr[minIndex]);
             
-            if (comparison < 0) {
-                minIndex = j;
-            }
-        }
-        
-        // Swap
-        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+      if (comparison < 0) {
+        minIndex = j;
+      }
     }
+        
+    // Swap
+    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+  }
     
-    return arr;
+  return arr;
 }
 
 /**
@@ -76,9 +76,9 @@ function selectionSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
  * @private
  */
 function defaultCompare<T>(a: T, b: T): number {
-    if (a < b) return -1;
-    if (a > b) return 1;
-    return 0;
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
 }
 
 export default { selectionSort };

@@ -49,20 +49,20 @@
  * // Top scores first
  */
 function heapSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
-    const n = arr.length;
+  const n = arr.length;
 
-    // Build max heap
-    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
-        heapify(arr, n, i, compareFn);
-    }
+  // Build max heap
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapify(arr, n, i, compareFn);
+  }
 
-    // Extract elements from heap one by one
-    for (let i = n - 1; i > 0; i--) {
-        [arr[0], arr[i]] = [arr[i], arr[0]];
-        heapify(arr, i, 0, compareFn);
-    }
+  // Extract elements from heap one by one
+  for (let i = n - 1; i > 0; i--) {
+    [arr[0], arr[i]] = [arr[i], arr[0]];
+    heapify(arr, i, 0, compareFn);
+  }
 
-    return arr;
+  return arr;
 }
 
 /**
@@ -76,24 +76,24 @@ function heapSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
  * @private
  */
 function heapify<T>(arr: T[], n: number, i: number, compareFn?: (a: T, b: T) => number): void {
-    let largest = i;
-    const left = 2 * i + 1;
-    const right = 2 * i + 2;
+  let largest = i;
+  const left = 2 * i + 1;
+  const right = 2 * i + 2;
 
-    const compare = compareFn || ((a, b) => (a > b ? 1 : a < b ? -1 : 0));
+  const compare = compareFn || ((a, b) => (a > b ? 1 : a < b ? -1 : 0));
 
-    if (left < n && compare(arr[left], arr[largest]) > 0) {
-        largest = left;
-    }
+  if (left < n && compare(arr[left], arr[largest]) > 0) {
+    largest = left;
+  }
 
-    if (right < n && compare(arr[right], arr[largest]) > 0) {
-        largest = right;
-    }
+  if (right < n && compare(arr[right], arr[largest]) > 0) {
+    largest = right;
+  }
 
-    if (largest !== i) {
-        [arr[i], arr[largest]] = [arr[largest], arr[i]];
-        heapify(arr, n, largest, compareFn);
-    }
+  if (largest !== i) {
+    [arr[i], arr[largest]] = [arr[largest], arr[i]];
+    heapify(arr, n, largest, compareFn);
+  }
 }
 
 export default { heapSort };
