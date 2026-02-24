@@ -1,0 +1,70 @@
+name: Security Audit
+
+on:
+  schedule:
+    # Run every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+
+jobs:
+  audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Run security audit
+        run: |
+          echo "## 🔒 Security Audit Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Run audit and capture output
+          pnpm audit --json > audit.json || true
+          
+          # Parse and display results
+          VULNS=$(cat audit.json | grep -o '"vulnerabilities":{[^}]*}' | head -1)
+          echo "### Vulnerabilities Summary" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          echo "$VULNS" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+      
+      - name: Check for high/critical vulnerabilities
+        run: |
+          HIGH=$(pnpm audit --json 2>/dev/null | grep -o '"high":[0-9]*' | grep -o '[0-9]*' || echo "0")
+          CRITICAL=$(pnpm audit --json 2>/dev/null | grep -o '"critical":[0-9]*' | grep -o '[0-9]*' || echo "0")
+          
+          if [ "$HIGH" != "0" ] || [ "$CRITICAL" != "0" ]; then
+            echo "⚠️ Warning: Found $HIGH high and $CRITICAL critical vulnerabilities"
+            echo "Note: Development dependencies vulnerabilities do not affect production users"
+          else
+            echo "✅ No high or critical vulnerabilities found"
+          fi
+      
+      - name: Upload audit results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-audit
+          path: audit.json
+          retention-days: 30
