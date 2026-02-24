@@ -1,42 +1,42 @@
 /**
  * Merge Sort - Divide and conquer sorting algorithm
- * 
+ *
  * **Time Complexity:**
  * - Best: O(n log n)
  * - Average: O(n log n)
  * - Worst: O(n log n)
  * - Space: O(n)
- * 
+ *
  * **Pros (จุดเด็น):**
  * - Guaranteed O(n log n) time complexity
  * - Stable sort (preserves order of equal elements)
  * - Predictable performance for all inputs
  * - Excellent for linked lists and external sorting
  * - Parallelizable for large datasets
- * 
+ *
  * **Cons (จุดด้อย):**
  * - Requires O(n) extra space for merging
  * - Slower than QuickSort in practice on small arrays
  * - Not in-place sorting
  * - More function calls overhead
- * 
+ *
  * @template T The type of elements in the array
  * @param {T[]} arr - The array to sort
  * @param {(a: T, b: T) => number} compareFn - Comparison function
  * @returns {T[]} A new sorted array
- * 
+ *
  * @example
  * // Sort numbers
  * const numbers = [38, 27, 43, 3, 9, 82, 10];
  * const sorted = mergeSort(numbers, (a, b) => a - b);
  * // Result: [3, 9, 10, 27, 38, 43, 82]
- * 
+ *
  * @example
  * // Sort strings
  * const strings = ['banana', 'apple', 'cherry'];
  * const sorted = mergeSort(strings, (a, b) => a.localeCompare(b));
  * // Result: ['apple', 'banana', 'cherry']
- * 
+ *
  * @example
  * // Sort objects by age
  * const users = [
@@ -59,7 +59,7 @@ function mergeSort<T>(arr: T[], compareFn: (a: T, b: T) => number): T[] {
 
 /**
  * Helper function to merge two sorted arrays
- * 
+ *
  * @template T The type of elements
  * @param {T[]} left - First sorted array
  * @param {T[]} right - Second sorted array
@@ -67,7 +67,11 @@ function mergeSort<T>(arr: T[], compareFn: (a: T, b: T) => number): T[] {
  * @returns {T[]} Merged sorted array
  * @private
  */
-function merge<T>(left: T[], right: T[], compareFn: (a: T, b: T) => number): T[] {
+function merge<T>(
+  left: T[],
+  right: T[],
+  compareFn: (a: T, b: T) => number,
+): T[] {
   const result: T[] = [];
   let i = 0;
   let j = 0;

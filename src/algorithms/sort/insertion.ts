@@ -49,17 +49,17 @@
  * const sorted = insertionSort(products, (a, b) => a.price - b.price);
  * // Result sorted by price: [Banana, Apple, Date, Cherry]
  */
-function insertionSort<T>(arr: T[], compare?: (a: T, b: T) => number): T[] {
+function insertionSort<T>(
+  arr: T[],
+  compare: (a: T, b: T) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0),
+): T[] {
   const result = [...arr];
 
   for (let i = 1; i < result.length; i++) {
     const key = result[i];
     let j = i - 1;
 
-    while (
-      j >= 0 &&
-      (compare ? compare(result[j], key) > 0 : ((result[j] > key) as any))
-    ) {
+    while (j >= 0 && compare(result[j], key) > 0) {
       result[j + 1] = result[j];
       j--;
     }

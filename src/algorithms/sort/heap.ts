@@ -1,43 +1,43 @@
 /**
  * Heap Sort - In-place sorting using binary heap structure
- * 
+ *
  * **Time Complexity:**
  * - Best: O(n log n)
  * - Average: O(n log n)
  * - Worst: O(n log n)
  * - Space: O(1) - In-place
- * 
+ *
  * **Pros (จุดเด็น):**
  * - Guaranteed O(n log n) time complexity
  * - In-place sorting (O(1) space)
  * - No worst-case scenarios
  * - Good for memory-constrained environments
  * - Efficient with large datasets
- * 
+ *
  * **Cons (จุดด้อย):**
  * - Unstable sort (doesn't preserve order of equal elements)
  * - Slower than QuickSort in practice
  * - Poor cache locality
  * - More complex implementation than QuickSort
  * - Not adaptive (same performance regardless of input order)
- * 
+ *
  * @template T The type of elements in the array
  * @param {T[]} arr - The array to sort
  * @param {(a: T, b: T) => number} [compareFn] - Optional comparison function
  * @returns {T[]} The sorted array (sorted in-place)
- * 
+ *
  * @example
  * // Sort numbers in ascending order
  * const numbers = [38, 27, 43, 3, 9, 82, 10];
  * const sorted = heapSort(numbers, (a, b) => a - b);
  * // Result: [3, 9, 10, 27, 38, 43, 82]
- * 
+ *
  * @example
  * // Sort descending
  * const numbers = [5, 2, 8, 1, 9];
  * const descending = heapSort(numbers, (a, b) => b - a);
  * // Result: [9, 8, 5, 2, 1]
- * 
+ *
  * @example
  * // Sort objects by score
  * const scores = [
@@ -67,7 +67,7 @@ function heapSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
 
 /**
  * Helper function to maintain heap property
- * 
+ *
  * @template T The type of elements
  * @param {T[]} arr - The array representing the heap
  * @param {number} n - Size of heap
@@ -75,7 +75,12 @@ function heapSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
  * @param {(a: T, b: T) => number} [compareFn] - Comparison function
  * @private
  */
-function heapify<T>(arr: T[], n: number, i: number, compareFn?: (a: T, b: T) => number): void {
+function heapify<T>(
+  arr: T[],
+  n: number,
+  i: number,
+  compareFn?: (a: T, b: T) => number,
+): void {
   let largest = i;
   const left = 2 * i + 1;
   const right = 2 * i + 2;
