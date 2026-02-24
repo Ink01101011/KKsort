@@ -10,6 +10,7 @@ A lightweight, type-safe TypeScript utility library for sorting algorithms. KKso
 - 🧪 **Well-Tested**: Comprehensive test coverage with Jest
 - 💎 **Production-Ready**: ESLint and code formatting included
 - 🚀 **Easy to Use**: Simple, intuitive API
+- 🌳 **Tree-Shakable**: Import only what you need for smaller bundles
 
 ## 📦 Installation
 
@@ -25,44 +26,76 @@ pnpm add @kktestdev/kksort
 
 ## 🚀 Quick Start
 
-```typescript
-import { sort } from '@kktestdev/kksort';
+### Import All Algorithms
 
-// Sort numbers (ascending)
+```typescript
+import { bubbleSort, quickSort, mergeSort } from '@kktestdev/kksort';
+
 const numbers = [3, 1, 4, 1, 5, 9, 2, 6];
-const sorted = sort(numbers);
+const sorted = quickSort(numbers, (a, b) => a - b);
 console.log(sorted); // [1, 1, 2, 3, 4, 5, 6, 9]
+```
+
+### Tree-Shakable Imports (Recommended)
+
+Import individual algorithms to reduce bundle size:
+
+```typescript
+// Only bundles quickSort
+import { quickSort } from '@kktestdev/kksort/quick';
+
+const numbers = [5, 2, 8, 1, 9];
+const sorted = quickSort(numbers, (a, b) => a - b);
+console.log(sorted); // [1, 2, 5, 8, 9]
+```
+
+### Available Subpath Imports
+
+```typescript
+import { bubbleSort } from '@kktestdev/kksort/bubble';
+import { heapSort } from '@kktestdev/kksort/heap';
+import { insertionSort } from '@kktestdev/kksort/insertion';
+import { mergeSort } from '@kktestdev/kksort/merge';
+import { quickSort } from '@kktestdev/kksort/quick';
+import { selectionSort } from '@kktestdev/kksort/selection';
+
+// Or import multiple algorithms at once
+import { bubbleSort, quickSort, mergeSort } from '@kktestdev/kksort/sort';
 ```
 
 ## 📖 API Documentation
 
-### Generic Sorting Function
+All sorting functions follow the same signature pattern:
 
-#### `sort<T>(array: T[], compareFn?: (a: T, b: T) => number): T[]`
-
-Sorts an array and returns a new sorted array without mutating the original. Uses the native JavaScript sort implementation.
+```typescript
+function sortingAlgorithm<T>(
+  arr: T[], 
+  compareFn?: (a: T, b: T) => number
+): T[]
+```
 
 **Parameters:**
-- `array` - The array to sort
+- `arr` - The array to sort
 - `compareFn` (optional) - Custom comparison function. Returns:
   - Negative number if first argument should come before second
   - Zero if they're equal
   - Positive number if first argument should come after second
 
-**Returns:** A new sorted array
+**Returns:** A sorted array (some algorithms modify in-place, others return new arrays)
 
-**Examples:**
+**Basic Usage:**
 
 ```typescript
-// Sort strings alphabetically
-const strings = ['banana', 'apple', 'cherry'];
-const sorted = sort(strings);
-console.log(sorted); // ['apple', 'banana', 'cherry']
+import { quickSort } from '@kktestdev/kksort/quick';
 
-// Sort numbers in descending order
-const numbers = [1, 2, 3, 4, 5];
-const descending = sort(numbers, (a, b) => b - a);
-console.log(descending); // [5, 4, 3, 2, 1]
+// Sort numbers ascending
+const numbers = [5, 2, 8, 1, 9];
+const sorted = quickSort(numbers, (a, b) => a - b);
+// [1, 2, 5, 8, 9]
+
+// Sort numbers descending
+const descending = quickSort(numbers, (a, b) => b - a);
+// [9, 8, 5, 2, 1]
 
 // Sort objects by property
 const users = [
@@ -70,19 +103,8 @@ const users = [
   { name: 'Alice', age: 25 },
   { name: 'Bob', age: 35 },
 ];
-const byAge = sort(users, (a, b) => a.age - b.age);
-console.log(byAge); 
-// [
-//   { name: 'Alice', age: 25 },
-//   { name: 'Charlie', age: 30 },
-//   { name: 'Bob', age: 35 }
-// ]
-
-// Original array is not mutated
-const original = [3, 1, 4];
-const copy = [...original];
-sort(original);
-console.log(original); // [3, 1, 4] - unchanged
+const byAge = quickSort(users, (a, b) => a.age - b.age);
+// [{ name: 'Alice', age: 25 }, ...]
 ```
 
 ### Sorting Algorithms

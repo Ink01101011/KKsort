@@ -1,6 +1,6 @@
 {
   "name": "@kktestdev/kksort",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Utilities TypeScript library",
   "keywords": [],
   "homepage": "https://github.com/Ink01101011/KKsort#readme",
@@ -13,9 +13,45 @@
   },
   "license": "ISC",
   "author": "Ink01101011",
+  "sideEffects": false,
   "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./bubble": {
+      "types": "./dist/algorithms/sort/bubble.d.ts",
+      "default": "./dist/algorithms/sort/bubble.js"
+    },
+    "./heap": {
+      "types": "./dist/algorithms/sort/heap.d.ts",
+      "default": "./dist/algorithms/sort/heap.js"
+    },
+    "./insertion": {
+      "types": "./dist/algorithms/sort/insertion.d.ts",
+      "default": "./dist/algorithms/sort/insertion.js"
+    },
+    "./merge": {
+      "types": "./dist/algorithms/sort/merge.d.ts",
+      "default": "./dist/algorithms/sort/merge.js"
+    },
+    "./quick": {
+      "types": "./dist/algorithms/sort/quick.d.ts",
+      "default": "./dist/algorithms/sort/quick.js"
+    },
+    "./selection": {
+      "types": "./dist/algorithms/sort/selection.d.ts",
+      "default": "./dist/algorithms/sort/selection.js"
+    },
+    "./sort": {
+      "types": "./dist/algorithms/sort/index.d.ts",
+      "default": "./dist/algorithms/sort/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],
