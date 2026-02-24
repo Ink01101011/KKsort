@@ -68,4 +68,5 @@ function quickSort<T>(
   return [...quickSort(left, compare), ...middle, ...quickSort(right, compare)];
 }
 
-export default { quickSort };
+export { quickSort };
+export default quickSort;

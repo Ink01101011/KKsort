@@ -81,4 +81,5 @@ function defaultCompare<T>(a: T, b: T): number {
   return 0;
 }
 
-export default { selectionSort };
+export { selectionSort };
+export default selectionSort;

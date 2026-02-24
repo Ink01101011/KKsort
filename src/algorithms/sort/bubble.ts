@@ -73,6 +73,5 @@ function bubbleSort<T>(arr: T[], compare?: (a: T, b: T) => number): T[] {
   return result;
 }
 
-export default {
-  bubbleSort,
-};
+export { bubbleSort };
+export default bubbleSort;

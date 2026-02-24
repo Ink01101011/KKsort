@@ -69,4 +69,5 @@ function insertionSort<T>(arr: T[], compare?: (a: T, b: T) => number): T[] {
   return result;
 }
 
-export default { insertionSort };
+export { insertionSort };
+export default insertionSort;

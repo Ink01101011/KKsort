@@ -83,4 +83,5 @@ function merge<T>(left: T[], right: T[], compareFn: (a: T, b: T) => number): T[]
   return result.concat(left.slice(i)).concat(right.slice(j));
 }
 
-export default { mergeSort };
+export { mergeSort };
+export default mergeSort;

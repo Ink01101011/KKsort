@@ -96,4 +96,5 @@ function heapify<T>(arr: T[], n: number, i: number, compareFn?: (a: T, b: T) => 
   }
 }
 
-export default { heapSort };
+export { heapSort, heapify };
+export default heapSort;
