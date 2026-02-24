@@ -99,7 +99,9 @@ describe('insertionSort', () => {
         { name: 'Alice', age: 25 },
         { name: 'Bob', age: 35 },
       ];
-      const result = insertionSort(users, (a, b) => a.name.localeCompare(b.name));
+      const result = insertionSort(users, (a, b) =>
+        a.name.localeCompare(b.name)
+      );
       expect(result).toEqual([
         { name: 'Alice', age: 25 },
         { name: 'Bob', age: 35 },

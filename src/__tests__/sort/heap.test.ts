@@ -16,7 +16,7 @@ describe('heapSort', () => {
 
     test('should sort strings alphabetically', () => {
       const strings = ['banana', 'apple', 'cherry', 'date'];
-      const result = heapSort([...strings], (a: string, b: string) => 
+      const result = heapSort([...strings], (a: string, b: string) =>
         a > b ? 1 : a < b ? -1 : 0
       );
       expect(result).toEqual(['apple', 'banana', 'cherry', 'date']);
@@ -73,7 +73,9 @@ describe('heapSort', () => {
     });
 
     test('should sort large random array', () => {
-      const random = Array.from({ length: 100 }, () => Math.floor(Math.random() * 100));
+      const random = Array.from({ length: 100 }, () =>
+        Math.floor(Math.random() * 100)
+      );
       const copy = [...random];
       const result = heapSort<number>(copy, (a, b) => a - b);
       const expected = [...random].sort((a, b) => a - b);
@@ -88,7 +90,10 @@ describe('heapSort', () => {
         { player: 'Bob', score: 85 },
         { player: 'Charlie', score: 95 },
       ];
-      const result = heapSort([...scores], (a: typeof scores[0], b: typeof scores[0]) => b.score - a.score);
+      const result = heapSort(
+        [...scores],
+        (a: (typeof scores)[0], b: (typeof scores)[0]) => b.score - a.score
+      );
       expect(result).toEqual([
         { player: 'Alice', score: 100 },
         { player: 'Charlie', score: 95 },
@@ -102,7 +107,10 @@ describe('heapSort', () => {
         { id: 1, value: 'a' },
         { id: 2, value: 'b' },
       ];
-      const result = heapSort([...items], (a: typeof items[0], b: typeof items[0]) => a.id - b.id);
+      const result = heapSort(
+        [...items],
+        (a: (typeof items)[0], b: (typeof items)[0]) => a.id - b.id
+      );
       expect(result).toEqual([
         { id: 1, value: 'a' },
         { id: 2, value: 'b' },

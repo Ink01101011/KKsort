@@ -71,7 +71,9 @@ describe('quickSort', () => {
     });
 
     test('should sort large random array', () => {
-      const random = Array.from({ length: 100 }, () => Math.floor(Math.random() * 100));
+      const random = Array.from({ length: 100 }, () =>
+        Math.floor(Math.random() * 100)
+      );
       const result = quickSort(random, (a, b) => a - b);
       const expected = [...random].sort((a, b) => a - b);
       expect(result).toEqual(expected);
