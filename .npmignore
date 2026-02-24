@@ -1,6 +1,32 @@
+# Source files
 src
+
+# Config files
 tsconfig.json
+jest.config.js
+.eslintrc.json
+.prettierrc
+.editorconfig
 .gitignore
+.npmignore
+
+# Test files
 *.test.ts
 *.spec.ts
+**/__tests__/**
+coverage
+
+# Development files
+DEVELOPMENT.md
+examples
+
+# Build files
+*.tsbuildinfo
+
+# System files
 .DS_Store
+*.log
+.env
+
+# CI/CD
+.github

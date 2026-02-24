@@ -75,35 +75,5 @@
     "prettier": "^3.8.1",
     "ts-jest": "^29.4.6",
     "typescript": "^5.3.3"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "testMatch": [
-      "**/*.test.ts",
-      "**/*.spec.ts"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/*.d.ts",
-      "!src/**/*.test.ts",
-      "!src/**/*.spec.ts"
-    ],
-    "coverageDirectory": "coverage",
-    "verbose": true,
-    "watchman": false
   }
 }
