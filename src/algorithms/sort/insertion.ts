@@ -51,7 +51,7 @@
  */
 function insertionSort<T>(
   arr: T[],
-  compare: (a: T, b: T) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0),
+  compare: (a: T, b: T) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0)
 ): T[] {
   const result = [...arr];
 

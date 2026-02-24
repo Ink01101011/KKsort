@@ -70,7 +70,7 @@ function mergeSort<T>(arr: T[], compareFn: (a: T, b: T) => number): T[] {
 function merge<T>(
   left: T[],
   right: T[],
-  compareFn: (a: T, b: T) => number,
+  compareFn: (a: T, b: T) => number
 ): T[] {
   const result: T[] = [];
   let i = 0;

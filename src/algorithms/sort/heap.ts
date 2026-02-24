@@ -79,7 +79,7 @@ function heapify<T>(
   arr: T[],
   n: number,
   i: number,
-  compareFn?: (a: T, b: T) => number,
+  compareFn?: (a: T, b: T) => number
 ): void {
   let largest = i;
   const left = 2 * i + 1;
