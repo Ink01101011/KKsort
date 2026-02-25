@@ -24,7 +24,7 @@ import { defaultCompare } from '../utils';
  *
  * @template T The type of elements in the array
  * @param {T[]} arr - The array to sort
- * @param {(a: T, b: T) => number} compareFn - Comparison function
+ * @param {(a: T, b: T) => number} [compareFn] - Optional comparison function (defaults to natural ordering)
  * @returns {T[]} A new sorted array
  *
  * @example
