@@ -142,10 +142,8 @@ describe('quickSearch', () => {
     test('should work with unsorted arrays (advantage over binary/jump search)', () => {
       const numbers = [10, 5, 20, 8, 15];
       const result = quickSearch(numbers, 20, (a, b) => a - b);
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(numbers[result]).toBe(20);
-      }
+      expect(result).not.toBe(-1);
+      expect(numbers[result]).toBe(20);
     });
   });
 });
