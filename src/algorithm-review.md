@@ -252,7 +252,7 @@ Systematic verification of each algorithm against its specification.
 - QUICK SEARCH REVIEW
 - ───────────────────
 - Specification:
-- - Time: O(n) average, O(n) worst case
+- - Time: O(n) average, O(n²) worst case (degenerates with consistently poor pivots)
 - - Space: O(log n) due to recursion
 - - Works on: Unsorted arrays
 - - Returns: Index if found, -1 if not found
