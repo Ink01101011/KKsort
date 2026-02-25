@@ -63,13 +63,17 @@ describe('linearSearch', () => {
   describe('String Search', () => {
     test('should find string in array', () => {
       const strings = ['apple', 'banana', 'cherry', 'date'];
-      const result = linearSearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = linearSearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(2);
     });
 
     test('should not find string when not in array', () => {
       const strings = ['apple', 'banana', 'date'];
-      const result = linearSearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = linearSearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(-1);
     });
   });
@@ -85,7 +89,7 @@ describe('linearSearch', () => {
       const users = [
         { id: 3, name: 'Bob' },
         { id: 1, name: 'Alice' },
-        { id: 5, name: 'Charlie' }
+        { id: 5, name: 'Charlie' },
       ];
       const result = linearSearch(
         users,

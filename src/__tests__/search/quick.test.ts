@@ -40,10 +40,10 @@ describe('quickSearch', () => {
     test('should handle two element array', () => {
       const numbers1 = [1, 2];
       expect(quickSearch(numbers1, 1)).toBeGreaterThanOrEqual(0);
-      
+
       const numbers2 = [1, 2];
       expect(quickSearch(numbers2, 2)).toBeGreaterThanOrEqual(0);
-      
+
       const numbers3 = [1, 2];
       expect(quickSearch(numbers3, 3)).toBe(-1);
     });
@@ -61,7 +61,9 @@ describe('quickSearch', () => {
   describe('String Search', () => {
     test('should find string in array', () => {
       const strings = ['apple', 'banana', 'cherry', 'date'];
-      const result = quickSearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = quickSearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBeGreaterThanOrEqual(-1);
       if (result !== -1) {
         expect(strings[result]).toBe('cherry');
@@ -70,7 +72,9 @@ describe('quickSearch', () => {
 
     test('should not find string when not in array', () => {
       const strings = ['apple', 'banana', 'date'];
-      const result = quickSearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = quickSearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(-1);
     });
   });
@@ -89,7 +93,7 @@ describe('quickSearch', () => {
       const users = [
         { id: 3, name: 'Bob' },
         { id: 1, name: 'Alice' },
-        { id: 5, name: 'Charlie' }
+        { id: 5, name: 'Charlie' },
       ];
       const result = quickSearch(
         users,
@@ -129,7 +133,9 @@ describe('quickSearch', () => {
       const copy = [...original];
       quickSearch(original, 7);
       // Array may be rearranged but should contain same elements
-      expect(original.sort((a, b) => a - b)).toEqual(copy.sort((a, b) => a - b));
+      expect(original.sort((a, b) => a - b)).toEqual(
+        copy.sort((a, b) => a - b)
+      );
     });
   });
 

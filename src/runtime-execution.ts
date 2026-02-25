@@ -37,10 +37,7 @@ function measureTime<T>(
 /**
  * Helper to verify sort result is correct
  */
-function verifySorted<T>(
-  arr: T[],
-  compareFn: (a: T, b: T) => number
-): boolean {
+function verifySorted<T>(arr: T[], compareFn: (a: T, b: T) => number): boolean {
   for (let i = 0; i < arr.length - 1; i++) {
     if (compareFn(arr[i], arr[i + 1]) > 0) {
       return false;
@@ -80,9 +77,6 @@ console.log('═'.repeat(60));
 
 // Test data
 const smallArray = [64, 34, 25, 12, 22, 11, 90];
-const mediumArray = Array.from({ length: 100 }, () =>
-  Math.floor(Math.random() * 1000)
-);
 const largeArray = Array.from({ length: 10000 }, () =>
   Math.floor(Math.random() * 100000)
 );
@@ -95,7 +89,7 @@ const compareFn = (a: number, b: number) => a - b;
 console.log('\n1️⃣  BUBBLE SORT');
 console.log('   Concept: Elementary algorithm, O(n²), stable');
 {
-  const { result, time } = measureTime('Bubble (small)', () =>
+  const { result } = measureTime('Bubble (small)', () =>
     bubbleSort(smallArray, compareFn)
   );
   const isValid = verifySorted(result, compareFn);
@@ -105,7 +99,9 @@ console.log('   Concept: Elementary algorithm, O(n²), stable');
 }
 
 console.log('\n2️⃣  INSERTION SORT');
-console.log('   Concept: Adaptive algorithm, O(n) best case (nearly sorted), stable');
+console.log(
+  '   Concept: Adaptive algorithm, O(n) best case (nearly sorted), stable'
+);
 {
   const { result } = measureTime('Insertion (nearly sorted)', () =>
     insertionSort(nearlySortedArray, compareFn)
@@ -127,7 +123,9 @@ console.log('   Concept: In-place, O(n²), unstable');
 }
 
 console.log('\n4️⃣  MERGE SORT');
-console.log('   Concept: Divide-conquer, O(n log n) guaranteed, stable, O(n) space');
+console.log(
+  '   Concept: Divide-conquer, O(n log n) guaranteed, stable, O(n) space'
+);
 {
   const { result, time } = measureTime('Merge (large)', () =>
     mergeSort(largeArray, compareFn)
@@ -135,7 +133,7 @@ console.log('   Concept: Divide-conquer, O(n log n) guaranteed, stable, O(n) spa
   const isValid = verifySorted(result, compareFn);
   console.log(`   ✓ Sorted correctly: ${isValid}`);
   console.log(`   ✓ O(n log n) time: ${time < 100 ? 'yes' : 'check'}`);
-  
+
   // Verify stability with objects
   const stabData = [
     { val: 3, id: 1 },
@@ -145,11 +143,13 @@ console.log('   Concept: Divide-conquer, O(n log n) guaranteed, stable, O(n) spa
   ];
   const stabResult = mergeSort(stabData, (a, b) => a.val - b.val);
   const isStable = stabResult[0].id === 2 && stabResult[2].id === 1;
-  console.log(   `   ✓ Maintains stability: ${isStable}`);
+  console.log(`   ✓ Maintains stability: ${isStable}`);
 }
 
 console.log('\n5️⃣  QUICK SORT');
-console.log('   Concept: Divide-conquer, O(n log n) average, unstable, O(log n) space');
+console.log(
+  '   Concept: Divide-conquer, O(n log n) average, unstable, O(log n) space'
+);
 {
   const { result, time } = measureTime('Quick (large)', () =>
     quickSort(largeArray, compareFn)
@@ -161,7 +161,9 @@ console.log('   Concept: Divide-conquer, O(n log n) average, unstable, O(log n) 
 }
 
 console.log('\n6️⃣  HEAP SORT');
-console.log('   Concept: Heap-based, O(n log n) guaranteed, unstable, O(1) space');
+console.log(
+  '   Concept: Heap-based, O(n log n) guaranteed, unstable, O(1) space'
+);
 {
   const testArr = [...largeArray];
   const { result, time } = measureTime('Heap (large)', () =>
@@ -214,7 +216,9 @@ console.log('   Concept: Works on unsorted, O(n), simple iteration');
 }
 
 console.log('\n3️⃣  JUMP SEARCH');
-console.log('   Concept: Requires sorted, O(√n), balanced between linear/binary');
+console.log(
+  '   Concept: Requires sorted, O(√n), balanced between linear/binary'
+);
 {
   console.log(`   Input: ${sortedSearch.join(', ')}`);
   const { result } = measureTime('Jump search for 11', () =>
@@ -229,7 +233,9 @@ console.log('   Concept: Requires sorted, O(√n), balanced between linear/binar
 }
 
 console.log('\n4️⃣  QUICK SEARCH');
-console.log('   Concept: Quicksort-based partitioning, O(n) average, unsorted ok');
+console.log(
+  '   Concept: Quicksort-based partitioning, O(n) average, unsorted ok'
+);
 {
   const testArr = [...unsortedSearch];
   console.log(`   Input: ${testArr.join(', ')}`);

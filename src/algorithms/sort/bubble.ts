@@ -52,7 +52,10 @@ import { defaultCompare } from '../utils';
  * const sorted = bubbleSort(students, (a, b) => b.grade - a.grade);
  * // Highest grades first
  */
-function bubbleSort<T>(arr: T[], compare: (a: T, b: T) => number = defaultCompare): T[] {
+function bubbleSort<T>(
+  arr: T[],
+  compare: (a: T, b: T) => number = defaultCompare
+): T[] {
   const result = [...arr];
   const n = result.length;
 

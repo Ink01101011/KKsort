@@ -58,13 +58,17 @@ describe('binarySearch', () => {
   describe('String Search', () => {
     test('should find string in sorted array', () => {
       const strings = ['apple', 'banana', 'cherry', 'date'];
-      const result = binarySearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = binarySearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(2);
     });
 
     test('should not find string when not in array', () => {
       const strings = ['apple', 'banana', 'date'];
-      const result = binarySearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = binarySearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(-1);
     });
   });
@@ -80,7 +84,7 @@ describe('binarySearch', () => {
       const users = [
         { id: 1, name: 'Alice' },
         { id: 3, name: 'Bob' },
-        { id: 5, name: 'Charlie' }
+        { id: 5, name: 'Charlie' },
       ];
       const result = binarySearch(
         users,

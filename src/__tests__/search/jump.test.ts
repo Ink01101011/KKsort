@@ -58,13 +58,17 @@ describe('jumpSearch', () => {
   describe('String Search', () => {
     test('should find string in sorted array', () => {
       const strings = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
-      const result = jumpSearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = jumpSearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(2);
     });
 
     test('should not find string when not in array', () => {
       const strings = ['apple', 'banana', 'date'];
-      const result = jumpSearch(strings, 'cherry', (a, b) => a.localeCompare(b));
+      const result = jumpSearch(strings, 'cherry', (a, b) =>
+        a.localeCompare(b)
+      );
       expect(result).toBe(-1);
     });
   });
@@ -81,7 +85,7 @@ describe('jumpSearch', () => {
         { id: 1, name: 'Alice' },
         { id: 3, name: 'Bob' },
         { id: 5, name: 'Charlie' },
-        { id: 7, name: 'David' }
+        { id: 7, name: 'David' },
       ];
       const result = jumpSearch(
         users,
