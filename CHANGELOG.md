@@ -19,9 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Pros and cons in Thai and English
   - Practical usage examples for each search algorithm
   - Type-safe generic implementations
-- **Utility functions** for code reuse and consistency:
+- **Utility function** for code reuse and consistency:
   - `defaultCompare<T>()` - Shared default comparison function
-  - `validateArray<T>()` - Array validation helper
 - **63 comprehensive unit tests** for all search algorithms with:
   - Basic search functionality tests
   - Edge cases and boundary conditions
