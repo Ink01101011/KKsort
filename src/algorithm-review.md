@@ -281,6 +281,7 @@ Systematic verification of each algorithm against its specification.
 - Completes recursion without finding the target → returns `-1` ✓
 
 **Status**: ✅ CORRECT – Useful for unsorted arrays
+
 ## Summary
 
 ```typescript
