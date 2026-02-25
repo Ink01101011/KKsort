@@ -4,8 +4,8 @@ import { defaultCompare } from '../utils';
  * Quick Search - Search algorithm using quicksort partitioning
  *
  * **Time Complexity:**
- * - Best: O(log n) - when partitions are balanced
- * - Average: O(n) - typical case
+ * - Best: O(1) - when the pivot is the target after the first partition
+ * - Average: O(n) - typical case over random inputs
  * - Worst: O(n) - unbalanced partitions
  * - Space: O(log n) - average recursive depth
  *
