@@ -37,6 +37,7 @@ function jumpSearch<T>(
   compare: (a: T, b: T) => number = defaultCompare
 ): number {
   const n = arr.length;
+  if (n === 0) return -1;
   let step = Math.floor(Math.sqrt(n));
   let prev = 0;
 
