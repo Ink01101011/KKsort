@@ -142,8 +142,8 @@ import { quickSearch } from '@kktestdev/kksort/quick-search';
 // All search algorithms at once
 import { binarySearch, linearSearch, jumpSearch, quickSearch } from '@kktestdev/kksort/search';
 
-// Main entry
-import * as KKsort from '@kktestdev/kksort';
+// Main entry (sorting algorithms only; search is available via /search and the individual search subpaths above)
+// import * as KKsort from '@kktestdev/kksort';
 ```
 
 ## 💡 Usage Examples
