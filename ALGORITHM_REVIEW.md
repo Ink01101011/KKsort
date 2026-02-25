@@ -86,10 +86,10 @@ for (let i = 1; i < result.length; i++) {  // ✓ Starts at 1
 
 **Specification Compliance:**
 - ✓ Time: O(n²) best/average/worst - consistent
-- ✓ Space: O(n) - creates new array
+- ✓ Space: O(1) - in-place, no new array
 - ✓ Stable: No - may move equal elements
 - ✓ Not adaptive: same performance on any input
-- ✓ Immutable: Yes - original array unchanged
+- ✓ Immutable: No - original array mutated
 
 **Key Code Points:**
 ```typescript
