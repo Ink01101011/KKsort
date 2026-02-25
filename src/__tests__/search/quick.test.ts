@@ -101,10 +101,8 @@ describe('quickSearch', () => {
         { id: 5, name: 'Charlie' },
         (a, b) => a.id - b.id
       );
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(users[result].id).toBe(5);
-      }
+      expect(result).not.toBe(-1);
+      expect(users[result].id).toBe(5);
     });
   });
 
@@ -119,10 +117,8 @@ describe('quickSearch', () => {
     test('should handle all negative numbers', () => {
       const numbers = [-10, -5, -3, -1];
       const result = quickSearch(numbers, -3, (a, b) => a - b);
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(numbers[result]).toBe(-3);
-      }
+      expect(result).not.toBe(-1);
+      expect(numbers[result]).toBe(-3);
     });
   });
 
