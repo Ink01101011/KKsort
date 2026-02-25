@@ -46,9 +46,9 @@ A lightweight, type-safe TypeScript library providing **6 optimized sorting algo
 | **Binary Search** | O(1) | O(log n) | O(log n) | O(1) | ✅ | Large sorted datasets |
 | **Linear Search** | O(1) | O(n) | O(n) | O(1) | ❌ | Small/unsorted data |
 | **Jump Search** | O(1) | O(√n) | O(√n) | O(1) | ✅ | Moderate sorted data |
-| **Quick Search** | O(1) | O(n) | O(n) | O(log n) | ❌ | Unsorted data *(mutates input array)* |
+| **Quick Search** | O(1) | O(n) | O(n²) | O(log n) | ❌ | Unsorted data *(mutates input array)* |
 
-> **Note:** The Quick Search algorithm mutates the input array during its search operation. If you need to preserve the original data, create a copy of the array before calling Quick Search.
+> **Note:** The Quick Search algorithm mutates the input array during its search operation and has average-case O(n) time but can degrade to O(n²) in the worst case when pivot partitions are consistently unbalanced. If you need to preserve the original data, create a copy of the array before calling Quick Search.
 ## 📦 Installation
 
 ```bash
