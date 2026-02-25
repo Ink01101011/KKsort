@@ -9,7 +9,7 @@ import { defaultCompare } from '../utils';
  * - Worst: O(n) - element not found or at last position
  * - Space: O(1)
  *
- * **Pros (จุดเด็น):**
+ * **Pros (จุดเด่น):**
  * - Works on unsorted arrays
  * - Simple and easy to understand
  * - Minimal memory overhead
