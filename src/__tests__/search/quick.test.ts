@@ -69,10 +69,8 @@ describe('quickSearch', () => {
       const result = quickSearch(strings, 'cherry', (a, b) =>
         a.localeCompare(b)
       );
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(strings[result]).toBe('cherry');
-      }
+      expect(result).toBeGreaterThanOrEqual(0);
+      expect(strings[result]).toBe('cherry');
     });
 
     test('should not find string when not in array', () => {
