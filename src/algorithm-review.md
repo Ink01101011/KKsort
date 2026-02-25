@@ -268,18 +268,19 @@ Systematic verification of each algorithm against its specification.
 - ✓ Search right: if target > pivot
 - ✓ Uses custom comparator: compare function
 - ✓ In-place partitioning: modifies array
--
-- Algorithm Flow for [3,7,2,9,1,5,8], target=9:
-- search(0,6): partition around pivot 8
-- → pi points to position where 8 should be
-- → if arr[pi]=8 ≠ 9, search(pi+1,6) in right
-- → eventually finds 9 at correct position ✓
--
-- Algorithm Flow for [3,7,2,9,1,5,8], target=10:
-- Completes recursion without finding → return -1 ✓
--
-- Status: ✅ CORRECT - Useful for unsorted arrays
 
+#### Algorithm Flow for [3, 7, 2, 9, 1, 5, 8], target = 9
+
+- `search(0, 6)`: partition around pivot `8`
+- `pi` points to position where `8` should be
+- If `arr[pi] = 8` ≠ `9`, call `search(pi + 1, 6)` on the right partition
+- Eventually finds `9` at the correct position ✓
+
+#### Algorithm Flow for [3, 7, 2, 9, 1, 5, 8], target = 10
+
+- Completes recursion without finding the target → returns `-1` ✓
+
+**Status**: ✅ CORRECT – Useful for unsorted arrays
 ## Summary
 
 ```typescript
