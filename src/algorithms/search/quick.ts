@@ -9,7 +9,7 @@ import { defaultCompare } from '../utils';
  * - Worst: O(n) - unbalanced partitions
  * - Space: O(log n) - average recursive depth
  *
- * **Pros (จุดเด็น):**
+ * **Pros (จุดเด่น):**
  * - Good average performance with balanced partitions
  * - Cache-friendly algorithm
  * - Uses quicksort's efficient partitioning
