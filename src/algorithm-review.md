@@ -69,25 +69,27 @@ Systematic verification of each algorithm against its specification.
 - ✓ Uses custom comparator: compare(result[j], result[minIndex])
 - ✓ Consistent O(n²): always makes n-1 comparisons and swaps
 - ✓ Returns new array: original unchanged
--
-- Status: ✅ CORRECT - Minimal writes, consistent performance
 
-- MERGE SORT REVIEW
-- ────────────────
-- Specification:
-- - Time: O(n log n) best/average/worst (guaranteed)
-- - Space: O(n) - auxiliary space needed
-- - Stable: Yes
-- - In-place: No
-- - Not adaptive: same performance regardless of input
--
-- Implementation Correctness:
-- ✓ Divide: mid = Math.floor(arr.length / 2)
+**Status**: ✅ CORRECT - Minimal writes, consistent performance
+
+### Merge Sort Review
+
+**Specification**
+
+- Time: O(n log n) best/average/worst (guaranteed)
+- Space: O(n) – auxiliary space needed
+- Stable: Yes
+- In-place: No
+- Not adaptive: same performance regardless of input
+
+**Implementation Correctness**
+
+- ✓ Divide: `mid = Math.floor(arr.length / 2)`
 - ✓ Conquer: recursive calls on left and right
 - ✓ Merge: maintains sorted order while combining
-- ✓ Base case: arr.length <= 1 returns immediately
-- ✓ Stable merging: compareFn(left[i], right[j]) <= 0 (uses <=)
-- ✓ Uses custom comparator: compareFn(left[i], right[j])
+- ✓ Base case: `arr.length <= 1` returns immediately
+- ✓ Stable merging: `compareFn(left[i], right[j]) <= 0` (uses `<=`)
+- ✓ Uses custom comparator: `compareFn(left[i], right[j])`
 - ✓ Guaranteed O(n log n): binary tree depth × linear merge
 - ✓ Linear scan in merge: while loops prevent unnecessary comparisons
 -
