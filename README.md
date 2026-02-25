@@ -46,7 +46,7 @@ A lightweight, type-safe TypeScript library providing **6 optimized sorting algo
 | **Binary Search** | O(1) | O(log n) | O(log n) | O(1) | ✅ | Large sorted datasets |
 | **Linear Search** | O(1) | O(n) | O(n) | O(1) | ❌ | Small/unsorted data |
 | **Jump Search** | O(1) | O(√n) | O(√n) | O(1) | ✅ | Moderate sorted data |
-| **Quick Search** | O(log n)* | O(n) | O(n) | O(log n) | ❌ | Unsorted data |
+| **Quick Search** | O(1) | O(n) | O(n) | O(log n) | ❌ | Unsorted data |
 
 ## 📦 Installation
 
