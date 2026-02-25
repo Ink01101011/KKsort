@@ -71,9 +71,6 @@ Systematic verification of each algorithm against its specification.
 - ✓ Returns new array: original unchanged
 -
 - Status: ✅ CORRECT - Minimal writes, consistent performance
-  \*/
-
-/\*\*
 
 - MERGE SORT REVIEW
 - ────────────────
@@ -101,9 +98,6 @@ Systematic verification of each algorithm against its specification.
 -              → [3,27,38,43] ✓
 -
 - Status: ✅ CORRECT - Perfect divide-and-conquer implementation
-  \*/
-
-/\*\*
 
 - QUICK SORT REVIEW
 - ─────────────────
@@ -131,9 +125,6 @@ Systematic verification of each algorithm against its specification.
 -           → final: [3,9,10,27,38,43,82] ✓
 -
 - Status: ✅ CORRECT - Efficient average-case sorting
-  \*/
-
-/\*\*
 
 - HEAP SORT REVIEW
 - ────────────────
@@ -162,13 +153,10 @@ Systematic verification of each algorithm against its specification.
 - → Result: [3,9,10,27,38,43,82] ✓
 -
 - Status: ✅ CORRECT - Guaranteed O(n log n) with O(1) space
-  \*/
 
 // ============================================================
 // SEARCH ALGORITHMS REVIEW
 // ============================================================
-
-/\*\*
 
 - BINARY SEARCH REVIEW
 - ───────────────────
@@ -199,9 +187,6 @@ Systematic verification of each algorithm against its specification.
 - left > right → return -1 ✓
 -
 - Status: ✅ CORRECT - Efficient search for sorted arrays
-  \*/
-
-/\*\*
 
 - LINEAR SEARCH REVIEW
 - ───────────────────
@@ -230,9 +215,6 @@ Systematic verification of each algorithm against its specification.
 - Loop through all elements, none match → return -1 ✓
 -
 - Status: ✅ CORRECT - Works on any array
-  \*/
-
-/\*\*
 
 - JUMP SEARCH REVIEW
 - ──────────────────
@@ -264,9 +246,6 @@ Systematic verification of each algorithm against its specification.
 - Linear: arr[5]=8 = 8 → return 5 ✓
 -
 - Status: ✅ CORRECT - Balanced search performance
-  \*/
-
-/\*\*
 
 - QUICK SEARCH REVIEW
 - ───────────────────
