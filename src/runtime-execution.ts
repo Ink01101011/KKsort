@@ -115,7 +115,7 @@ console.log('\n3️⃣  SELECTION SORT');
 console.log('   Concept: In-place, O(n²), unstable');
 {
   const { result } = measureTime('Selection (small)', () =>
-    selectionSort(smallArray, compareFn)
+    selectionSort([...smallArray], compareFn)
   );
   const isValid = verifySorted(result, compareFn);
   console.log(`   ✓ Sorted correctly: ${isValid}`);
