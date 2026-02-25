@@ -1,49 +1,49 @@
-/\*\*
+# Algorithm Implementation Review
 
-- Algorithm Implementation Review
-- Systematic verification of each algorithm against its specification
-  \*/
+Systematic verification of each algorithm against its specification.
 
-// ============================================================
-// SORTING ALGORITHMS REVIEW
-// ============================================================
 
-/\*\*
 
-- BUBBLE SORT REVIEW
-- ─────────────────
-- Specification:
-- - Time: O(n²) average/worst, O(n) best (with optimization)
-- - Space: O(n) - creates copy
-- - Stable: Yes
-- - In-place: No
-- - Adaptive: Yes (with optimization)
--
-- Implementation Correctness:
-- ✓ Creates new array: [...arr]
-- ✓ Compares adjacent elements: arr[j] vs arr[j+1]
-- ✓ Swaps larger elements: [result[j], result[j+1]] = [result[j+1], result[j]]
-- ✓ Repeats n-1 times: for (let i = 0; i < n - 1; i++)
-- ✓ Inner loop reduces: for (let j = 0; j < n - i - 1; j++)
-- ✓ Uses custom comparator: compare(result[j], result[j + 1]) > 0
-- ✓ Maintains stability: equal elements don't move relative to each other
-- ✓ Returns new array: original unchanged
--
-- Status: ✅ CORRECT - Follows bubble sort algorithm perfectly
-  \*/
+## Sorting Algorithms Review
 
-/\*\*
 
-- INSERTION SORT REVIEW
-- ────────────────────
-- Specification:
-- - Time: O(n) best (sorted), O(n²) average/worst
-- - Space: O(n) - creates copy
-- - Stable: Yes
-- - In-place: No
-- - Adaptive: Yes (great for nearly sorted data)
--
-- Implementation Correctness:
+
+### Bubble Sort Review
+
+**Specification**
+
+- Time: O(n²) average/worst, O(n) best (with optimization)
+- Space: O(n) – creates copy
+- Stable: Yes
+- In-place: No
+- Adaptive: Yes (with optimization)
+
+**Implementation Correctness**
+
+- Creates new array: `[...arr]`
+- Compares adjacent elements: `arr[j]` vs `arr[j + 1]`
+- Swaps larger elements: `[result[j], result[j + 1]] = [result[j + 1], result[j]]`
+- Repeats `n - 1` times: `for (let i = 0; i < n - 1; i++)`
+- Inner loop reduces: `for (let j = 0; j < n - i - 1; j++)`
+- Uses custom comparator: `compare(result[j], result[j + 1]) > 0`
+- Maintains stability: equal elements don't move relative to each other
+- Returns new array: original unchanged
+
+**Status**: ✅ CORRECT – Follows bubble sort algorithm perfectly
+
+
+### Insertion Sort Review
+
+**Specification**
+
+- Time: O(n) best (sorted), O(n²) average/worst
+- Space: O(n) – creates copy
+- Stable: Yes
+- In-place: No
+- Adaptive: Yes (great for nearly sorted data)
+
+**Implementation Correctness:**
+- 
 - ✓ Creates new array: [...arr]
 - ✓ Starts from index 1: for (let i = 1; i < result.length; i++)
 - ✓ Builds sorted prefix: elements 0 to i-1 are sorted
