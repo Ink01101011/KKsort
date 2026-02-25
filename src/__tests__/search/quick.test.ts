@@ -46,10 +46,14 @@ describe('quickSearch', () => {
 
     test('should handle two element array', () => {
       const numbers1 = [1, 2];
-      expect(quickSearch(numbers1, 1)).toBeGreaterThanOrEqual(0);
+      const result1 = quickSearch(numbers1, 1);
+      expect(result1).not.toBe(-1);
+      expect(numbers1[result1]).toBe(1);
 
       const numbers2 = [1, 2];
-      expect(quickSearch(numbers2, 2)).toBeGreaterThanOrEqual(0);
+      const result2 = quickSearch(numbers2, 2);
+      expect(result2).not.toBe(-1);
+      expect(numbers2[result2]).toBe(2);
 
       const numbers3 = [1, 2];
       expect(quickSearch(numbers3, 3)).toBe(-1);
