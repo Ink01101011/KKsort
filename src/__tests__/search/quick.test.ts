@@ -112,10 +112,8 @@ describe('quickSearch', () => {
     test('should find negative numbers', () => {
       const numbers = [3, -5, 7, -2, 0];
       const result = quickSearch(numbers, -5, (a, b) => a - b);
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(numbers[result]).toBe(-5);
-      }
+      expect(result).not.toBe(-1);
+      expect(numbers[result]).toBe(-5);
     });
 
     test('should handle all negative numbers', () => {
