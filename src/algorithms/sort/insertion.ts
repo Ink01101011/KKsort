@@ -1,3 +1,5 @@
+import { defaultCompare } from '../utils';
+
 /**
  * Insertion Sort - Builds sorted array one item at a time by inserting elements into correct position
  *
@@ -51,7 +53,7 @@
  */
 function insertionSort<T>(
   arr: T[],
-  compare: (a: T, b: T) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0)
+  compare: (a: T, b: T) => number = defaultCompare
 ): T[] {
   const result = [...arr];
 

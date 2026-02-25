@@ -1,3 +1,5 @@
+import { defaultCompare } from '../utils';
+
 /**
  * Quick Sort - Efficient divide-and-conquer sorting algorithm
  *
@@ -56,7 +58,7 @@
  */
 function quickSort<T>(
   arr: T[],
-  compare: (a: T, b: T) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0)
+  compare: (a: T, b: T) => number = defaultCompare
 ): T[] {
   if (arr.length <= 1) return arr;
 
