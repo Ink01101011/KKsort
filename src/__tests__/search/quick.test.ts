@@ -57,10 +57,9 @@ describe('quickSearch', () => {
     test('should handle array with duplicate values', () => {
       const numbers = [1, 2, 2, 2, 3, 4, 5];
       const result = quickSearch(numbers, 2);
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(numbers[result]).toBe(2);
-      }
+      expect(result).toBeGreaterThanOrEqual(0);
+      expect(result).toBeLessThan(numbers.length);
+      expect(numbers[result]).toBe(2);
     });
   });
 
