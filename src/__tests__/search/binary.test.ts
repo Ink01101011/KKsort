@@ -28,6 +28,10 @@ describe('binarySearch', () => {
   });
 
   describe('Edge Cases', () => {
+    test('should return -1 for empty array', () => {
+      expect(binarySearch([], 1)).toBe(-1);
+    });
+
     test('should handle single element array with match', () => {
       const numbers = [42];
       const result = binarySearch(numbers, 42);
