@@ -43,7 +43,7 @@ Systematic verification of each algorithm against its specification.
 - ✓ Starts from index 1: `for (let i = 1; i < result.length; i++)`
 - ✓ Builds sorted prefix: elements `0` to `i - 1` are sorted
 - ✓ Finds insertion position: shifts elements right while `>` key
-- ✓ Uses custom comparator: `compare(arr[j], arr[j + 1]) > 0`
+- ✓ Uses custom comparator: `compare(result[j], key) > 0` while shifting elements right
 - ✓ Maintains stability: equal elements preserve order
 - ✓ Returns new array: original unchanged
 
