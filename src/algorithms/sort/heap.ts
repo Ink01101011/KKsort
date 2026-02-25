@@ -1,3 +1,5 @@
+import { defaultCompare } from '../utils';
+
 /**
  * Heap Sort - In-place sorting using binary heap structure
  *
@@ -85,7 +87,7 @@ function heapify<T>(
   const left = 2 * i + 1;
   const right = 2 * i + 2;
 
-  const compare = compareFn || ((a, b) => (a > b ? 1 : a < b ? -1 : 0));
+  const compare = compareFn || defaultCompare;
 
   if (left < n && compare(arr[left], arr[largest]) > 0) {
     largest = left;
