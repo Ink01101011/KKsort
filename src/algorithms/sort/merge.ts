@@ -49,7 +49,10 @@ import { defaultCompare } from '../utils';
  * const sorted = mergeSort(users, (a, b) => a.age - b.age);
  * // Result maintains stability for equal ages
  */
-function mergeSort<T>(arr: T[], compareFn: (a: T, b: T) => number = defaultCompare): T[] {
+function mergeSort<T>(
+  arr: T[],
+  compareFn: (a: T, b: T) => number = defaultCompare
+): T[] {
   if (arr.length <= 1) return arr;
 
   const mid = Math.floor(arr.length / 2);
