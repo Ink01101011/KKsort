@@ -66,7 +66,7 @@ for (let i = 0; i < n - 1; i++) {  // ✓ n-1 passes
 
 **Key Code Points:**
 ```typescript
-const result = [[arr[0], ...arr.slice(1)];
+const result = [arr[0], ...arr.slice(1)];
 for (let i = 1; i < result.length; i++) {  // ✓ Starts at 1
   const key = result[i];
   let j = i - 1;

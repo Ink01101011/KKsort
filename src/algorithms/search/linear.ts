@@ -44,4 +44,5 @@ function linearSearch<T>(
   return -1;
 }
 
+export { linearSearch };
 export default linearSearch;

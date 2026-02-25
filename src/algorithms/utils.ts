@@ -15,14 +15,3 @@ export function defaultCompare<T>(a: T, b: T): number {
   if (a > b) return 1;
   return 0;
 }
-
-/**
- * Validates that the input array is not empty
- * @param {T[]} arr The array to validate
- * @throws {Error} If array is empty
- */
-export function validateArray<T>(arr: T[]): void {
-  if (!Array.isArray(arr) || arr.length === 0) {
-    throw new Error('Array must not be empty');
-  }
-}

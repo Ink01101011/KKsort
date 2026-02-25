@@ -67,4 +67,5 @@ function jumpSearch<T>(
   return -1;
 }
 
+export { jumpSearch };
 export default jumpSearch;
