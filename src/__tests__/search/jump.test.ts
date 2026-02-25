@@ -40,6 +40,11 @@ describe('jumpSearch', () => {
       expect(result).toBe(-1);
     });
 
+    test('should return -1 for empty array', () => {
+      const numbers: number[] = [];
+      const result = jumpSearch(numbers, 10);
+      expect(result).toBe(-1);
+    });
     test('should handle two element array', () => {
       const numbers = [1, 2];
       expect(jumpSearch(numbers, 1)).toBe(0);
