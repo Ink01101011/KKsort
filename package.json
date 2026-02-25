@@ -106,7 +106,7 @@
     "format": "prettier --write src",
     "format:check": "prettier --check src",
     "demo": "pnpm build && node dist/runtime-execution.js",
-    "review": "cat ALGORITHM_REVIEW.md",
+    "review": "node -e \"require('fs').createReadStream('ALGORITHM_REVIEW.md').pipe(process.stdout)\"",
     "prepublishOnly": "npm run build",
     "pre-publish": "node scripts/pre-publish.js",
     "validate": "npm run lint && npm run format:check && npm test && npm run build",
