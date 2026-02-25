@@ -9,7 +9,7 @@ import { defaultCompare } from '../utils';
  * - Worst: O(√n)
  * - Space: O(1)
  *
- * **Pros (จุดเด็น):**
+ * **Pros (จุดเด่น):**
  * - Better than linear search O(√n) vs O(n)
  * - Works on sorted arrays
  * - Simpler than binary search while still efficient
