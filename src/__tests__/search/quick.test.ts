@@ -96,13 +96,11 @@ describe('quickSearch', () => {
         { id: 1, name: 'Alice' },
         { id: 5, name: 'Charlie' },
       ];
-      const result = quickSearch(
-        users,
-        { id: 5, name: 'Charlie' },
-        (a, b) => a.id - b.id
-      );
+      const target = { id: 5, name: 'Charlie' };
+      const comparator = (a, b) => a.id - b.id;
+      const result = quickSearch(users, target, comparator);
       expect(result).not.toBe(-1);
-      expect(users[result].id).toBe(5);
+      expect(comparator(users[result], target)).toBe(0);
     });
   });
 
