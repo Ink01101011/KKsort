@@ -1,3 +1,5 @@
+import { defaultCompare } from '../utils';
+
 /**
  * Selection Sort - Simple sorting algorithm that divides array into sorted and unsorted parts
  *
@@ -66,21 +68,6 @@ function selectionSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
   }
 
   return arr;
-}
-
-/**
- * Default comparison function for primitive types
- *
- * @template T The type being compared
- * @param {T} a - First element
- * @param {T} b - Second element
- * @returns {number} Negative if a < b, zero if equal, positive if a > b
- * @private
- */
-function defaultCompare<T>(a: T, b: T): number {
-  if (a < b) return -1;
-  if (a > b) return 1;
-  return 0;
 }
 
 export { selectionSort };
