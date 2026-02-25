@@ -2,11 +2,7 @@
 
 Systematic verification of each algorithm against its specification.
 
-
-
 ## Sorting Algorithms Review
-
-
 
 ### Bubble Sort Review
 
@@ -30,7 +26,6 @@ Systematic verification of each algorithm against its specification.
 - Returns new array: original unchanged
 
 **Status**: ✅ CORRECT – Follows bubble sort algorithm perfectly
-
 
 ### Insertion Sort Review
 
@@ -305,9 +300,9 @@ Systematic verification of each algorithm against its specification.
 - Completes recursion without finding → return -1 ✓
 -
 - Status: ✅ CORRECT - Useful for unsorted arrays
-// ============================================================
-// SUMMARY
-// ============================================================
+  // ============================================================
+  // SUMMARY
+  // ============================================================
 
 export const algorithmReview = {
 sorting: {
