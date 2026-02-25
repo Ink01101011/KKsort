@@ -39,6 +39,7 @@ function quickSearch<T>(
   target: T,
   compare: (a: T, b: T) => number = defaultCompare
 ): number {
+  if (arr.length === 0) return -1;
   function partition(low: number, high: number): number {
     const pivot = arr[high];
     let i = low - 1;
