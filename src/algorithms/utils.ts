@@ -22,19 +22,3 @@ export function defaultCompare<T>(a: T, b: T): number {
 
 /**
  * Validates that the provided value is a non-null array.
- * Throws a TypeError if the value is not an array.
- *
- * @template T The element type of the array
- * @param {T[]} arr The value to validate
- * @param {string} [name='array'] Optional name used in the error message
- * @returns {T[]} The same array, for chaining
- * @throws {TypeError} If the value is not an array
- */
-export function validateArray<T>(arr: T[], name = 'array'): T[] {
-  if (!Array.isArray(arr)) {
-    throw new TypeError(
-      `Expected ${name} to be an array, but got ${typeof arr}`
-    );
-  }
-  return arr;
-}
