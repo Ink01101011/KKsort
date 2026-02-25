@@ -54,4 +54,5 @@ function binarySearch<T>(
   return -1;
 }
 
+export { binarySearch };
 export default binarySearch;
