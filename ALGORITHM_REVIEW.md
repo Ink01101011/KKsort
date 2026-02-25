@@ -346,9 +346,9 @@ return -1;
 #### 4. Quick Search ✅
 
 **Specification Compliance:**
-- ✓ Time: O(n) average, O(n) worst case
-- ✓ Space: O(log n) - recursive depth
-- ✓ Works on: Unsorted arrays
+- ✓ Time: O(n) average, O(n²) worst case (degenerates with consistently poor pivots)
+- ✓ Space: O(log n) average, O(n) worst case recursive depth
+- ✓ Works on: Unsorted arrays (no pre-sorting required)
 - ✓ Returns: Index if found, -1 if not
 - ✓ Works with: Custom comparators
 
