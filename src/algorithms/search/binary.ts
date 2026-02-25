@@ -9,7 +9,7 @@ import { defaultCompare } from '../utils';
  * - Worst: O(log n)
  * - Space: O(1)
  *
- * **Pros (จุดเด็น):**
+ * **Pros (จุดเด่น):**
  * - Very efficient O(log n) search
  * - Works well for large sorted datasets
  * - Minimal memory overhead
