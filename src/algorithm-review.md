@@ -42,34 +42,34 @@ Systematic verification of each algorithm against its specification.
 - In-place: No
 - Adaptive: Yes (great for nearly sorted data)
 
-**Implementation Correctness:**
-- 
-- ✓ Creates new array: [...arr]
-- ✓ Starts from index 1: for (let i = 1; i < result.length; i++)
-- ✓ Builds sorted prefix: elements 0 to i-1 are sorted
-- ✓ Finds insertion position: shifts elements right while > key
-- ✓ Uses custom comparator: compare(arr[j], arr[j + 1]) > 0
+**Implementation Correctness**
+
+- ✓ Creates new array: `[...arr]`
+- ✓ Starts from index 1: `for (let i = 1; i < result.length; i++)`
+- ✓ Builds sorted prefix: elements `0` to `i - 1` are sorted
+- ✓ Finds insertion position: shifts elements right while `>` key
+- ✓ Uses custom comparator: `compare(arr[j], arr[j + 1]) > 0`
 - ✓ Maintains stability: equal elements preserve order
 - ✓ Returns new array: original unchanged
--
-- Status: ✅ CORRECT - Ideal for nearly sorted data
-  \*/
 
-/\*\*
+**Status**: ✅ CORRECT - Ideal for nearly sorted data
 
-- SELECTION SORT REVIEW
-- ────────────────────
-- Specification:
-- - Time: O(n²) best/average/worst (consistent)
-- - Space: O(1) or O(n) depending on implementation
-- - Stable: No (based on implementation)
-- - In-place: Can be, but here creates copy
-- - Not adaptive: same performance regardless of input
--
-- Implementation Correctness:
-- ✓ Creates new array: [...arr]
-- ✓ Finds minimum/maximum: multiple passes
+### Selection Sort Review
+
+**Specification**
+
+- Time: O(n²) best/average/worst (consistent)
+- Space: O(1) or O(n) depending on implementation
+- Stable: No (depends on implementation)
+- In-place: Can be, but here creates copy
+- Not adaptive: same performance regardless of input
+
+**Implementation Correctness**
+
+- ✓ Creates new array: `[...arr]`
+- ✓ Finds minimum/maximum with multiple passes
 - ✓ Places in correct position: swaps with sorted boundary
+- ✓ Grows sorted region while shrinking unsorted region
 - ✓ Reduces unsorted portion: for (let j = minIndex + 1; j < length; j++)
 - ✓ Uses custom comparator: compare(result[j], result[minIndex])
 - ✓ Consistent O(n²): always makes n-1 comparisons and swaps
