@@ -88,10 +88,9 @@ describe('quickSearch', () => {
     test('should use custom comparator function', () => {
       const numbers = [5, 2, 8, 1, 9];
       const result = quickSearch(numbers, 8, (a, b) => a - b);
-      expect(result).toBeGreaterThanOrEqual(-1);
-      if (result !== -1) {
-        expect(numbers[result]).toBe(8);
-      }
+      expect(result).toBeGreaterThanOrEqual(0);
+      expect(result).toBeLessThan(numbers.length);
+      expect(numbers[result]).toBe(8);
     });
 
     test('should respect comparator for objects', () => {
