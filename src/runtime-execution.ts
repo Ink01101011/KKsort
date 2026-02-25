@@ -1,3 +1,5 @@
+import { performance } from 'node:perf_hooks';
+
 /**
  * Runtime Execution & Algorithm Review
  * This file demonstrates all sorting and searching algorithms

@@ -5,9 +5,8 @@ describe('quickSearch', () => {
     test('should find element in unsorted array', () => {
       const numbers = [3, 7, 2, 9, 1, 5, 8];
       const result = quickSearch(numbers, 9);
-      // Note: quickSearch mutates array, so we check if index is found
-      expect(result).toBeGreaterThanOrEqual(-1);
-      expect(result).toBeLessThan(numbers.length);
+      expect(result).not.toBe(-1);
+      expect(numbers[result]).toBe(9);
     });
 
     test('should return -1 when element not found', () => {

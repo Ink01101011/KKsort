@@ -6,7 +6,7 @@ import { defaultCompare } from '../utils';
  * **Time Complexity:**
  * - Best: O(1) - when the pivot is the target after the first partition
  * - Average: O(n) - typical case over random inputs
- * - Worst: O(n) - unbalanced partitions
+ * - Worst: O(n²) - consistently unbalanced partitions
  * - Space: O(log n) - average recursive depth
  *
  * **Pros (จุดเด่น):**
@@ -17,7 +17,7 @@ import { defaultCompare } from '../utils';
  * - Minimal space overhead on average
  *
  * **Cons (จุดด้อย):**
- * - Worst case O(n) with poor pivot selection
+ * - Worst case O(n²) with consistently poor pivot selection
  * - Unstable (doesn't preserve element order)
  * - Recursive implementation uses stack space
  * - Slower than binary search for sorted arrays
