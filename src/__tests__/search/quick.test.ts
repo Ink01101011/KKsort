@@ -18,8 +18,10 @@ describe('quickSearch', () => {
     test('should find element in small array', () => {
       const numbers = [5, 3, 7];
       const result = quickSearch(numbers, 5);
+      expect(result).not.toBe(-1);
       expect(result).toBeGreaterThanOrEqual(0);
       expect(result).toBeLessThan(numbers.length);
+      expect(numbers[result]).toBe(5);
     });
   });
 
