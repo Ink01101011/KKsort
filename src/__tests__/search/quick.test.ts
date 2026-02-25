@@ -25,6 +25,11 @@ describe('quickSearch', () => {
   });
 
   describe('Edge Cases', () => {
+    test('should handle empty array', () => {
+      const result = quickSearch([], 42);
+      expect(result).toBe(-1);
+    });
+
     test('should handle single element array with match', () => {
       const numbers = [42];
       const result = quickSearch(numbers, 42);
