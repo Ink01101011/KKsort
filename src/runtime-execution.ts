@@ -257,29 +257,34 @@ console.log(
  * ==================== PERFORMANCE COMPARISON ====================
  */
 console.log('\n' + '═'.repeat(60));
-console.log('📊 PERFORMANCE COMPARISON (10,000 elements)');
+console.log('📊 PERFORMANCE COMPARISON');
 console.log('═'.repeat(60));
 
-const perfArray = Array.from({ length: 10000 }, () =>
+const perfArray10k = Array.from({ length: 10000 }, () =>
+  Math.floor(Math.random() * 100000)
+);
+const perfArray1k = Array.from({ length: 1000 }, () =>
   Math.floor(Math.random() * 100000)
 );
 
-console.log('\nSorting 10,000 random elements:');
+console.log('\nSorting performance:');
+console.log(' - O(n²) sorts on 1,000 elements');
+console.log(' - O(n log n) sorts on 10,000 elements');
 const times: Record<string, number> = {};
 
 const algos = [
-  { name: 'Bubble Sort', fn: () => bubbleSort([...perfArray], compareFn) },
+  { name: 'Bubble Sort', fn: () => bubbleSort([...perfArray1k], compareFn) },
   {
     name: 'Selection Sort',
-    fn: () => selectionSort([...perfArray], compareFn),
+    fn: () => selectionSort([...perfArray1k], compareFn),
   },
   {
     name: 'Insertion Sort',
-    fn: () => insertionSort([...perfArray], compareFn),
+    fn: () => insertionSort([...perfArray1k], compareFn),
   },
-  { name: 'Merge Sort', fn: () => mergeSort([...perfArray], compareFn) },
-  { name: 'Quick Sort', fn: () => quickSort([...perfArray], compareFn) },
-  { name: 'Heap Sort', fn: () => heapSort([...perfArray], compareFn) },
+  { name: 'Merge Sort', fn: () => mergeSort([...perfArray10k], compareFn) },
+  { name: 'Quick Sort', fn: () => quickSort([...perfArray10k], compareFn) },
+  { name: 'Heap Sort', fn: () => heapSort([...perfArray10k], compareFn) },
 ];
 
 for (const algo of algos) {
