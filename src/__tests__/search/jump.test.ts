@@ -28,6 +28,11 @@ describe('jumpSearch', () => {
   });
 
   describe('Edge Cases', () => {
+    test('should handle empty array', () => {
+      const result = jumpSearch([], 5);
+      expect(result).toBe(-1);
+    });
+
     test('should handle single element array with match', () => {
       const numbers = [42];
       const result = jumpSearch(numbers, 42);
