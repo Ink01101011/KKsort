@@ -266,11 +266,11 @@ console.log('\nSorting 10,000 random elements:');
 const times: Record<string, number> = {};
 
 const algos = [
-  { name: 'Bubble Sort', fn: () => bubbleSort(perfArray, compareFn) },
-  { name: 'Selection Sort', fn: () => selectionSort(perfArray, compareFn) },
-  { name: 'Insertion Sort', fn: () => insertionSort(perfArray, compareFn) },
-  { name: 'Merge Sort', fn: () => mergeSort(perfArray, compareFn) },
-  { name: 'Quick Sort', fn: () => quickSort(perfArray, compareFn) },
+  { name: 'Bubble Sort', fn: () => bubbleSort([...perfArray], compareFn) },
+  { name: 'Selection Sort', fn: () => selectionSort([...perfArray], compareFn) },
+  { name: 'Insertion Sort', fn: () => insertionSort([...perfArray], compareFn) },
+  { name: 'Merge Sort', fn: () => mergeSort([...perfArray], compareFn) },
+  { name: 'Quick Sort', fn: () => quickSort([...perfArray], compareFn) },
   { name: 'Heap Sort', fn: () => heapSort([...perfArray], compareFn) },
 ];
 
