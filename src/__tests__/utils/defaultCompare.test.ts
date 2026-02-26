@@ -72,15 +72,21 @@ describe('defaultCompare', () => {
 
   describe('Dates', () => {
     test('should return -1 when first date is earlier than second', () => {
-      expect(defaultCompare(new Date('2020-01-01'), new Date('2021-01-01'))).toBe(-1);
+      expect(
+        defaultCompare(new Date('2020-01-01'), new Date('2021-01-01'))
+      ).toBe(-1);
     });
 
     test('should return 1 when first date is later than second', () => {
-      expect(defaultCompare(new Date('2021-01-01'), new Date('2020-01-01'))).toBe(1);
+      expect(
+        defaultCompare(new Date('2021-01-01'), new Date('2020-01-01'))
+      ).toBe(1);
     });
 
     test('should return 0 when dates are equal', () => {
-      expect(defaultCompare(new Date('2020-01-01'), new Date('2020-01-01'))).toBe(0);
+      expect(
+        defaultCompare(new Date('2020-01-01'), new Date('2020-01-01'))
+      ).toBe(0);
     });
 
     test('should handle invalid dates', () => {
