@@ -53,7 +53,7 @@ function mergeSort<T>(
   arr: T[],
   compareFn: (a: T, b: T) => number = defaultCompare
 ): T[] {
-  if (arr.length <= 1) return arr;
+  if (arr.length <= 1) return arr.slice();
 
   const mid = Math.floor(arr.length / 2);
   const left = mergeSort(arr.slice(0, mid), compareFn);
