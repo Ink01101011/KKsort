@@ -1,15 +1,25 @@
 export function defaultCompare(a: unknown, b: unknown): number {
   // Numbers, strings, and bigints can be compared directly.
-  if (
-    (typeof a === 'number' && typeof b === 'number') ||
-    (typeof a === 'string' && typeof b === 'string') ||
-    (typeof a === 'bigint' && typeof b === 'bigint')
-  ) {
+  if (typeof a === 'number' && typeof b === 'number') {
+    if (Number.isNaN(a) || Number.isNaN(b)) {
+      throw new TypeError('defaultCompare does not support NaN values.');
+    }
     if (a < b) return -1;
     if (a > b) return 1;
     return 0;
   }
 
+  if (typeof a === 'string' && typeof b === 'string') {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  }
+
+  if (typeof a === 'bigint' && typeof b === 'bigint') {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  }
   // Booleans: define false < true.
   if (typeof a === 'boolean' && typeof b === 'boolean') {
     if (a === b) return 0;
