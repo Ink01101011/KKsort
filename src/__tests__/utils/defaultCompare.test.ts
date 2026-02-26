@@ -89,12 +89,12 @@ describe('defaultCompare', () => {
       ).toBe(0);
     });
 
-    test('should handle invalid dates', () => {
+    test('should throw for invalid dates', () => {
       const invalidDate = new Date('invalid');
       const validDate = new Date('2020-01-01');
-      // Invalid dates produce NaN from getTime(); since NaN < NaN and NaN > NaN are both false, returns 0
-      expect(defaultCompare(invalidDate, invalidDate)).toBe(0);
-      expect(defaultCompare(invalidDate, validDate)).toBe(0);
+      expect(() => defaultCompare(invalidDate, invalidDate)).toThrow(TypeError);
+      expect(() => defaultCompare(invalidDate, validDate)).toThrow(TypeError);
+      expect(() => defaultCompare(validDate, invalidDate)).toThrow(TypeError);
     });
   });
 
