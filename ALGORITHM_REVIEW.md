@@ -119,7 +119,7 @@ for (let i = 0; i < array.length - 1; i++) {
 
 **Key Code Points:**
 ```typescript
-if (arr.length <= 1) return arr;  // ✓ Base case
+if (arr.length <= 1) return arr.slice();  // ✓ Base case (preserves immutability)
 const mid = Math.floor(arr.length / 2);  // ✓ Binary division
 const left = mergeSort(arr.slice(0, mid), compareFn);  // ✓ Recursive left
 const right = mergeSort(arr.slice(mid), compareFn);  // ✓ Recursive right
