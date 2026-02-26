@@ -31,7 +31,9 @@ export function defaultCompare(a: unknown, b: unknown): number {
     const av = a.getTime();
     const bv = b.getTime();
     if (Number.isNaN(av) || Number.isNaN(bv)) {
-      throw new TypeError('defaultCompare does not support invalid Date values.');
+      throw new TypeError(
+        'defaultCompare does not support invalid Date values.'
+      );
     }
     if (av < bv) return -1;
     if (av > bv) return 1;
