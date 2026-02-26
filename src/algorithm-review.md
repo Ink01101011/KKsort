@@ -156,19 +156,18 @@ Systematic verification of each algorithm against its specification.
 -
 - Status: ✅ CORRECT - Guaranteed O(n log n) with O(1) space
 
-// ============================================================
-// SEARCH ALGORITHMS REVIEW
-// ============================================================
+## Search Algorithms Review
 
-- BINARY SEARCH REVIEW
-- ───────────────────
-- Specification:
-- - Time: O(log n) best/average/worst
-- - Space: O(1)
-- - Requires: Sorted array
-- - Returns: Index if found, -1 if not found
--
-- Implementation Correctness:
+### Binary Search Review
+
+**Specification**
+
+- Time: O(log n) best/average/worst
+- Space: O(1)
+- Requires: Sorted array
+- Returns: Index if found, -1 if not found
+
+**Implementation Correctness**
 - ✓ Requires sorted array: must be called on sorted data
 - ✓ Two pointers: left = 0, right = arr.length - 1
 - ✓ Binary division: mid = Math.floor((left + right) / 2)
