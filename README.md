@@ -74,7 +74,7 @@ yarn add @kktestdev/kksort
 Import individual algorithms to minimize bundle size:
 
 ```typescript
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 
 const numbers = [5, 2, 8, 1, 9];
 const sorted = quickSort(numbers, (a, b) => a - b);
@@ -127,7 +127,7 @@ import { bubbleSort } from '@kktestdev/kksort/bubble';
 import { heapSort } from '@kktestdev/kksort/heap';
 import { insertionSort } from '@kktestdev/kksort/insertion';
 import { mergeSort } from '@kktestdev/kksort/merge';
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 import { selectionSort } from '@kktestdev/kksort/selection';
 
 // All sorting algorithms at once
@@ -151,7 +151,7 @@ import { binarySearch, linearSearch, jumpSearch, quickSearch } from '@kktestdev/
 ### Example 1: Basic Number Sorting (Ascending)
 
 ```typescript
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 
 const numbers = [64, 34, 25, 12, 22, 11, 90];
 const sorted = quickSort(numbers, (a, b) => a - b);
@@ -171,7 +171,7 @@ console.log(sorted); // [95, 92, 88, 85, 78]
 ### Example 3: String Sorting
 
 ```typescript
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 
 const words = ['zebra', 'apple', 'mango', 'banana'];
 const sorted = quickSort(words, (a, b) => a.localeCompare(b));
@@ -200,7 +200,7 @@ const sorted = mergeSort(employees, (a, b) => a.salary - b.salary);
 ### Example 5: Object Sorting (Multiple Criteria)
 
 ```typescript
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 
 const students = [
   { name: 'Alice', grade: 'A', score: 95 },

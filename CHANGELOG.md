@@ -83,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Import only what you need to minimize bundle size:
 ```javascript
 // Individual functions
-import { quickSort } from '@kktestdev/kksort/quick'
+import { quickSort } from '@kktestdev/kksort/quick-sort'
 
 // All sort functions
 import { bubbleSort, mergeSort } from '@kktestdev/kksort/sort'

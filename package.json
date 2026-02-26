@@ -59,7 +59,7 @@
       "types": "./dist/algorithms/sort/merge.d.ts",
       "default": "./dist/algorithms/sort/merge.js"
     },
-    "./quick": {
+    "./quick-sort": {
       "types": "./dist/algorithms/sort/quick.d.ts",
       "default": "./dist/algorithms/sort/quick.js"
     },
