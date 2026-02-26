@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Merge Sort - Divide and conquer sorting algorithm

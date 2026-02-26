@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Quick Sort - Efficient divide-and-conquer sorting algorithm

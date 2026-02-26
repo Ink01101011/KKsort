@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Bubble Sort - Elementary sorting algorithm that repeatedly steps through the list

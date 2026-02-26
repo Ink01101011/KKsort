@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Linear Search - Simple sequential search algorithm

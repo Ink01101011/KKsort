@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Binary Search - Efficient search algorithm for sorted arrays

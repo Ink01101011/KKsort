@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Insertion Sort - Builds sorted array one item at a time by inserting elements into correct position

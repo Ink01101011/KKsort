@@ -1,4 +1,4 @@
-import { defaultCompare } from '../utils';
+import { defaultCompare } from '../../utils';
 
 /**
  * Selection Sort - Simple sorting algorithm that divides array into sorted and unsorted parts
