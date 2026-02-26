@@ -7,7 +7,7 @@
 
 // Method 1: Import specific algorithm directly
 const { bubbleSort } = require('@kktestdev/kksort/bubble');
-const { quickSort } = require('@kktestdev/kksort/quick');
+const { quickSort } = require('@kktestdev/kksort/quick-sort');
 const { mergeSort } = require('@kktestdev/kksort/merge');
 
 // Method 2: Import from sort module (all algorithms)
