@@ -33,7 +33,7 @@ import { defaultCompare } from '../../utils';
 function binarySearch<T>(
   arr: T[],
   target: T,
-  compare: (a: T, b: T) => number = defaultCompare
+  compare: (a: T, b: T) => number = defaultCompare as (a: T, b: T) => number
 ): number {
   let left = 0;
   let right = arr.length - 1;
