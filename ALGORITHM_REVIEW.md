@@ -158,7 +158,7 @@ Result: [3,27,38,43] ✓
 
 **Key Code Points:**
 ```typescript
-if (arr.length <= 1) return arr;  // ✓ Base case
+if (arr.length <= 1) return arr.slice();  // ✓ Base case (preserve immutability)
 const pivot = arr[Math.floor(arr.length / 2)];  // ✓ Middle pivot
 const left = arr.filter((x) => compare(x, pivot) < 0);  // ✓ Strictly less
 const middle = arr.filter((x) => compare(x, pivot) === 0);  // ✓ Equal elements
