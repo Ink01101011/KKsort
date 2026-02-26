@@ -60,7 +60,7 @@ function quickSort<T>(
   arr: T[],
   compare: (a: T, b: T) => number = defaultCompare
 ): T[] {
-  if (arr.length <= 1) return arr;
+  if (arr.length <= 1) return arr.slice();
 
   const pivot = arr[Math.floor(arr.length / 2)];
   const left = arr.filter((x) => compare(x, pivot) < 0);
