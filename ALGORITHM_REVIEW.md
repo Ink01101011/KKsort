@@ -93,16 +93,14 @@ for (let i = 1; i < result.length; i++) {  // ✓ Starts at 1
 
 **Key Code Points:**
 ```typescript
-for (let i = 0; i < length - 1; i++) {
+for (let i = 0; i < array.length - 1; i++) {
   let minIndex = i;
-  for (let j = minIndex + 1; j < length; j++) {  // ✓ Find minimum
-    if (compare(result[j], result[minIndex]) < 0) {
+  for (let j = minIndex + 1; j < array.length; j++) {  // ✓ Find minimum
+    if (compare(array[j], array[minIndex]) < 0) {
       minIndex = j;
     }
   }
-  if (minIndex !== i) {
-    [result[i], result[minIndex]] = [result[minIndex], result[i]];  // ✓ Swap
-  }
+  [array[i], array[minIndex]] = [array[minIndex], array[i]];  // ✓ Swap
 }
 ```
 
