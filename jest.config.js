@@ -12,6 +12,8 @@ module.exports = {
     '!src/**/*.d.ts',
     '!src/**/*.test.ts',
     '!src/**/*.spec.ts',
+    '!src/index.ts',
+    '!src/runtime-execution.ts',
   ],
   coverageDirectory: 'coverage',
   verbose: true,

@@ -24,7 +24,7 @@ Import specific algorithms to reduce bundle size:
 ```javascript
 // CommonJS
 const { bubbleSort } = require('@kktestdev/kksort/bubble');
-const { quickSort } = require('@kktestdev/kksort/quick');
+const { quickSort } = require('@kktestdev/kksort/quick-sort');
 const { mergeSort } = require('@kktestdev/kksort/merge');
 const { heapSort } = require('@kktestdev/kksort/heap');
 const { insertionSort } = require('@kktestdev/kksort/insertion');
@@ -32,7 +32,7 @@ const { selectionSort } = require('@kktestdev/kksort/selection');
 
 // ES Module
 import { bubbleSort } from '@kktestdev/kksort/bubble';
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 import { mergeSort } from '@kktestdev/kksort/merge';
 import { heapSort } from '@kktestdev/kksort/heap';
 import { insertionSort } from '@kktestdev/kksort/insertion';
@@ -74,7 +74,7 @@ import {
 | `@kktestdev/kksort/heap` | `{ heapSort }` | Heap sort algorithm |
 | `@kktestdev/kksort/insertion` | `{ insertionSort }` | Insertion sort algorithm |
 | `@kktestdev/kksort/merge` | `{ mergeSort }` | Merge sort algorithm |
-| `@kktestdev/kksort/quick` | `{ quickSort }` | Quick sort algorithm |
+| `@kktestdev/kksort/quick-sort` | `{ quickSort }` | Quick sort algorithm |
 | `@kktestdev/kksort/selection` | `{ selectionSort }` | Selection sort algorithm |
 | `@kktestdev/kksort/sort` | All sorting algorithms | All algorithms in one import |
 
@@ -85,7 +85,7 @@ Only import what you need, reducing final bundle size:
 
 ```javascript
 // ✅ Good - Only bundles quickSort
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 
 // ❌ Less optimal - May bundle unused code
 import { sort } from '@kktestdev/kksort';
@@ -102,7 +102,7 @@ Faster load times due to smaller bundle sizes.
 Full TypeScript support with proper type definitions for all import methods:
 
 ```typescript
-import { quickSort } from '@kktestdev/kksort/quick';
+import { quickSort } from '@kktestdev/kksort/quick-sort';
 import type { bubbleSort } from '@kktestdev/kksort/bubble';
 
 const numbers: number[] = [5, 2, 8, 1, 9];

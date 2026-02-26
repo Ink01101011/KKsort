@@ -1,10 +1,12 @@
 {
   "name": "@kktestdev/kksort",
-  "version": "1.0.1",
-  "description": "TypeScript sorting algorithms library with tree-shakable imports and full type safety",
+  "version": "1.0.2",
+  "description": "TypeScript sorting and searching algorithms library with tree-shakable imports and full type safety",
   "keywords": [
     "sort",
     "sorting",
+    "search",
+    "searching",
     "algorithm",
     "algorithms",
     "typescript",
@@ -14,6 +16,9 @@
     "heapsort",
     "insertionsort",
     "selectionsort",
+    "binary-search",
+    "linear-search",
+    "jump-search",
     "tree-shaking",
     "esm",
     "typescript-library",
@@ -54,6 +59,10 @@
       "types": "./dist/algorithms/sort/merge.d.ts",
       "default": "./dist/algorithms/sort/merge.js"
     },
+    "./quick-sort": {
+      "types": "./dist/algorithms/sort/quick.d.ts",
+      "default": "./dist/algorithms/sort/quick.js"
+    },
     "./quick": {
       "types": "./dist/algorithms/sort/quick.d.ts",
       "default": "./dist/algorithms/sort/quick.js"
@@ -66,10 +75,31 @@
       "types": "./dist/algorithms/sort/index.d.ts",
       "default": "./dist/algorithms/sort/index.js"
     },
+    "./binary": {
+      "types": "./dist/algorithms/search/binary.d.ts",
+      "default": "./dist/algorithms/search/binary.js"
+    },
+    "./linear": {
+      "types": "./dist/algorithms/search/linear.d.ts",
+      "default": "./dist/algorithms/search/linear.js"
+    },
+    "./jump": {
+      "types": "./dist/algorithms/search/jump.d.ts",
+      "default": "./dist/algorithms/search/jump.js"
+    },
+    "./quick-search": {
+      "types": "./dist/algorithms/search/quick.d.ts",
+      "default": "./dist/algorithms/search/quick.js"
+    },
+    "./search": {
+      "types": "./dist/algorithms/search/index.d.ts",
+      "default": "./dist/algorithms/search/index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "ALGORITHM_REVIEW.md"
   ],
   "scripts": {
     "build": "tsc",
@@ -80,6 +110,8 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
+    "demo": "pnpm build && node dist/runtime-execution.js",
+    "review": "node -e \"require('fs').createReadStream('ALGORITHM_REVIEW.md').pipe(process.stdout)\"",
     "prepublishOnly": "npm run build",
     "pre-publish": "node scripts/pre-publish.js",
     "validate": "npm run lint && npm run format:check && npm test && npm run build",
@@ -88,6 +120,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
+    "@types/node": "^25.3.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^10.0.2",

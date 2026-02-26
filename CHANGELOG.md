@@ -5,6 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-02-25
+
+### Added
+
+- **Search Algorithm Suite** - Four efficient searching algorithms:
+  - **Binary Search** - O(log n) search for sorted arrays with guaranteed performance
+  - **Linear Search** - O(n) simple search for unsorted arrays and small datasets
+  - **Jump Search** - O(√n) optimized search, balanced between linear and binary search
+  - **Quick Search** - O(n) average-case search using quicksort partitioning for unsorted data
+- **Comprehensive JSDoc for search algorithms** including:
+  - Time complexity analysis (best/average/worst cases)
+  - Pros and cons in Thai and English
+  - Practical usage examples for each search algorithm
+  - Type-safe generic implementations
+- **Utility function** for code reuse and consistency:
+  - `defaultCompare<T>()` - Shared default comparison function
+- **63 comprehensive unit tests** for all search algorithms with:
+  - Basic search functionality tests
+  - Edge cases and boundary conditions
+  - Custom comparator function support
+  - Negative number handling
+  - Large dataset performance tests
+- **Tree-shakable search imports** for optimal bundle size:
+  - Import individual search functions
+  - Import all search functions from `/search` endpoint
+- **Updated package.json exports** with subpath imports for search algorithms:
+  - `@kktestdev/kksort/binary`
+  - `@kktestdev/kksort/linear`
+  - `@kktestdev/kksort/jump`
+  - `@kktestdev/kksort/quick-search`
+  - `@kktestdev/kksort/search`
+- **Code quality optimizations**:
+  - Extracted shared comparator to utilities module (DRY principle)
+  - Consistent default comparison functions across all algorithms
+  - Enhanced documentation for all algorithms
+- **Updated README** with search algorithm documentation
+- **Updated keywords** to include search-related terms
+
+### Changed
+
+- Refactored all algorithm comparators to use shared `defaultCompare` utility
+- Updated test count from **109 to 172 unit tests**
+- Updated code coverage documentation to include search algorithms
+- Enhanced keyword metadata in package.json for better discoverability
+
 ## [1.0.0] - 2026-02-24
 
 ### Added
@@ -38,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Import only what you need to minimize bundle size:
 ```javascript
 // Individual functions
-import { quickSort } from '@kktestdev/kksort/quick'
+import { quickSort } from '@kktestdev/kksort/quick-sort'
 
 // All sort functions
 import { bubbleSort, mergeSort } from '@kktestdev/kksort/sort'

@@ -1,3 +1,5 @@
+import { Comparable, defaultCompare } from '../../utils';
+
 /**
  * Merge Sort - Divide and conquer sorting algorithm
  *
@@ -22,7 +24,7 @@
  *
  * @template T The type of elements in the array
  * @param {T[]} arr - The array to sort
- * @param {(a: T, b: T) => number} compareFn - Comparison function
+ * @param {(a: T, b: T) => number} [compareFn] - Optional comparison function (defaults to natural ordering)
  * @returns {T[]} A new sorted array
  *
  * @example
@@ -47,8 +49,11 @@
  * const sorted = mergeSort(users, (a, b) => a.age - b.age);
  * // Result maintains stability for equal ages
  */
-function mergeSort<T>(arr: T[], compareFn: (a: T, b: T) => number): T[] {
-  if (arr.length <= 1) return arr;
+function mergeSort<T extends Comparable>(
+  arr: T[],
+  compareFn: (a: T, b: T) => number = defaultCompare
+): T[] {
+  if (arr.length <= 1) return arr.slice();
 
   const mid = Math.floor(arr.length / 2);
   const left = mergeSort(arr.slice(0, mid), compareFn);

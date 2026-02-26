@@ -1,3 +1,5 @@
+import { Comparable, defaultCompare } from '../../utils';
+
 /**
  * Insertion Sort - Builds sorted array one item at a time by inserting elements into correct position
  *
@@ -49,9 +51,9 @@
  * const sorted = insertionSort(products, (a, b) => a.price - b.price);
  * // Result sorted by price: [Banana, Apple, Date, Cherry]
  */
-function insertionSort<T>(
+function insertionSort<T extends Comparable>(
   arr: T[],
-  compare: (a: T, b: T) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0)
+  compare: (a: T, b: T) => number = defaultCompare
 ): T[] {
   const result = [...arr];
 
