@@ -168,6 +168,7 @@ Systematic verification of each algorithm against its specification.
 - Returns: Index if found, -1 if not found
 
 **Implementation Correctness**
+
 - ✓ Requires sorted array: must be called on sorted data
 - ✓ Two pointers: left = 0, right = arr.length - 1
 - ✓ Binary division: mid = Math.floor((left + right) / 2)
