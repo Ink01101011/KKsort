@@ -1,4 +1,6 @@
-export function defaultCompare(a: unknown, b: unknown): number {
+type Comparable = number | string | bigint | boolean | Date;
+
+export function defaultCompare<T extends Comparable>(a: T, b: T): number {
   // Numbers, strings, and bigints can be compared directly.
   if (typeof a === 'number' && typeof b === 'number') {
     if (Number.isNaN(a) || Number.isNaN(b)) {
