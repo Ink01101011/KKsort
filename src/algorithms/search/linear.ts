@@ -13,7 +13,7 @@ import { defaultCompare } from '../utils';
  * - Works on unsorted arrays
  * - Simple and easy to understand
  * - Minimal memory overhead
- * - Works with any comparable type
+ * - Works with primitive comparable types by default (number, string, bigint, boolean, Date); provide a custom comparator for other types
  *
  * **Cons (จุดด้อย):**
  * - Slow for large datasets (O(n))
