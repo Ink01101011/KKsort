@@ -63,6 +63,10 @@
       "types": "./dist/algorithms/sort/quick.d.ts",
       "default": "./dist/algorithms/sort/quick.js"
     },
+    "./quick": {
+      "types": "./dist/algorithms/sort/quick.d.ts",
+      "default": "./dist/algorithms/sort/quick.js"
+    },
     "./selection": {
       "types": "./dist/algorithms/sort/selection.d.ts",
       "default": "./dist/algorithms/sort/selection.js"
