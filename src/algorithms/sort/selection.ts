@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Selection Sort - Simple sorting algorithm that divides array into sorted and unsorted parts
@@ -47,7 +47,10 @@ import { defaultCompare } from '../../utils';
  * const partial = selectionSort([...items], (a, b) => b - a);
  * // Top items move to beginning
  */
-function selectionSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
+function selectionSort<T extends Comparable>(
+  arr: T[],
+  compareFn?: (a: T, b: T) => number
+): T[] {
   const n = arr.length;
 
   for (let i = 0; i < n - 1; i++) {

@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Quick Sort - Efficient divide-and-conquer sorting algorithm
@@ -56,7 +56,7 @@ import { defaultCompare } from '../../utils';
  * );
  * // Sorted by department first, then salary
  */
-function quickSort<T>(
+function quickSort<T extends Comparable>(
   arr: T[],
   compare: (a: T, b: T) => number = defaultCompare
 ): T[] {

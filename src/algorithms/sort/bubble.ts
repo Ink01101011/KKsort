@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Bubble Sort - Elementary sorting algorithm that repeatedly steps through the list
@@ -52,7 +52,7 @@ import { defaultCompare } from '../../utils';
  * const sorted = bubbleSort(students, (a, b) => b.grade - a.grade);
  * // Highest grades first
  */
-function bubbleSort<T>(
+function bubbleSort<T extends Comparable>(
   arr: T[],
   compare: (a: T, b: T) => number = defaultCompare
 ): T[] {

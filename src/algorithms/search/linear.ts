@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Linear Search - Simple sequential search algorithm
@@ -31,7 +31,7 @@ import { defaultCompare } from '../../utils';
  * const index = linearSearch(numbers, 8);
  * // Result: 2
  */
-function linearSearch<T>(
+function linearSearch<T extends Comparable>(
   arr: T[],
   target: T,
   compare: (a: T, b: T) => number = defaultCompare

@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Merge Sort - Divide and conquer sorting algorithm
@@ -49,7 +49,7 @@ import { defaultCompare } from '../../utils';
  * const sorted = mergeSort(users, (a, b) => a.age - b.age);
  * // Result maintains stability for equal ages
  */
-function mergeSort<T>(
+function mergeSort<T extends Comparable>(
   arr: T[],
   compareFn: (a: T, b: T) => number = defaultCompare
 ): T[] {

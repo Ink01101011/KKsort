@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Heap Sort - In-place sorting using binary heap structure
@@ -50,7 +50,10 @@ import { defaultCompare } from '../../utils';
  * const sorted = heapSort(scores, (a, b) => b.score - a.score);
  * // Top scores first
  */
-function heapSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
+function heapSort<T extends Comparable>(
+  arr: T[],
+  compareFn?: (a: T, b: T) => number
+): T[] {
   const n = arr.length;
 
   // Build max heap
@@ -77,7 +80,7 @@ function heapSort<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[] {
  * @param {(a: T, b: T) => number} [compareFn] - Comparison function
  * @private
  */
-function heapify<T>(
+function heapify<T extends Comparable>(
   arr: T[],
   n: number,
   i: number,

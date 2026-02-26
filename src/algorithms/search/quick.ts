@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Quick Search - Search algorithm using quicksort partitioning
@@ -34,7 +34,7 @@ import { defaultCompare } from '../../utils';
  * const index = quickSearch(numbers, 9);
  * // Result: 3 (or different index if array is rearranged)
  */
-function quickSearch<T>(
+function quickSearch<T extends Comparable>(
   arr: T[],
   target: T,
   compare: (a: T, b: T) => number = defaultCompare

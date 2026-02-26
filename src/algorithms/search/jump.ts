@@ -31,7 +31,11 @@ import { defaultCompare } from '../../utils';
  * const index = jumpSearch(numbers, 6);
  * // Result: 3
  */
-function jumpSearch<T>(arr: T[], target: T, compare: (a: T, b: T) => number): number;
+function jumpSearch<T>(
+  arr: T[],
+  target: T,
+  compare: (a: T, b: T) => number
+): number;
 function jumpSearch<T>(arr: T[], target: T): number;
 function jumpSearch<T>(
   arr: T[],

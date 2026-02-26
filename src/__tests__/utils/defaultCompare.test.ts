@@ -108,8 +108,8 @@ describe('defaultCompare', () => {
     });
 
     test('should throw TypeError for mismatched types', () => {
-      expect(() => defaultCompare(1, '1')).toThrow(TypeError);
-      expect(() => defaultCompare('a', 1)).toThrow(TypeError);
+      expect(() => defaultCompare<1 | '1'>(1, '1')).toThrow(TypeError);
+      expect(() => defaultCompare<'a' | 1>('a', 1)).toThrow(TypeError);
     });
   });
 });

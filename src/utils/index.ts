@@ -1,4 +1,4 @@
-type Comparable = number | string | bigint | boolean | Date;
+export type Comparable = number | string | bigint | boolean | Date | object;
 
 export function defaultCompare<T extends Comparable>(a: T, b: T): number {
   // Numbers, strings, and bigints can be compared directly.

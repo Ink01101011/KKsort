@@ -1,4 +1,4 @@
-import { defaultCompare } from '../../utils';
+import { Comparable, defaultCompare } from '../../utils';
 
 /**
  * Binary Search - Efficient search algorithm for sorted arrays
@@ -30,7 +30,7 @@ import { defaultCompare } from '../../utils';
  * const index = binarySearch(numbers, 5);
  * // Result: 2
  */
-function binarySearch<T>(
+function binarySearch<T extends Comparable>(
   arr: T[],
   target: T,
   compare: (a: T, b: T) => number = defaultCompare as (a: T, b: T) => number
