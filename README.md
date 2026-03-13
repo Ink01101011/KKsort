@@ -52,13 +52,13 @@ console.log(index); // 3
 type Comparable = string | number | bigint | boolean | Date | object;
 
 // Sort
-declare function sortFn<T extends Comparable>(
+declare function sortFn<T>(
   arr: T[],
   compareFn?: (a: T, b: T) => number
 ): T[];
 
 // Search
-declare function searchFn<T extends Comparable>(
+declare function searchFn<T>(
   arr: T[],
   target: T,
   compareFn?: (a: T, b: T) => number
