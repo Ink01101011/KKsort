@@ -48,18 +48,20 @@ console.log(index); // 3
 ### รูปแบบฟังก์ชัน
 
 ```typescript
-// ตัวอย่างรูปแบบชนิดข้อมูล (type signatures) ของฟังก์ชันในไลบรารี
+// ตัวอย่าง "pseudo signature" ของชนิดข้อมูล (type signatures) ที่ฟังก์ชันในไลบรารีใช้งาน
 // comparator เริ่มต้น (เมื่อไม่ส่ง compareFn) รองรับเฉพาะ:
 // number | string | bigint | boolean | Date
 
+type Comparable = number | string | bigint | boolean | Date;
+
 // Sort
-declare function sortFn<T>(
+declare function sortFn<T extends Comparable>(
   arr: T[],
   compareFn?: (a: T, b: T) => number
 ): T[];
 
 // Search
-declare function searchFn<T>(
+declare function searchFn<T extends Comparable>(
   arr: T[],
   target: T,
   compareFn?: (a: T, b: T) => number
