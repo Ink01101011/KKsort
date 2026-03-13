@@ -48,16 +48,27 @@ console.log(index); // 3
 ### รูปแบบฟังก์ชัน
 
 ```typescript
+// Types usedโดย ไลบรารี (แนวคิด)
+type Comparable = string | number | boolean | Date;
+
 // Sort
-sortFn<T>(arr: T[], compareFn?: (a: T, b: T) => number): T[]
+sortFn<T extends Comparable>(
+  arr: T[],
+  compareFn?: (a: T, b: T) => number
+): T[];
 
 // Search
-searchFn<T>(arr: T[], target: T, compareFn?: (a: T, b: T) => number): number
+searchFn<T extends Comparable>(
+  arr: T[],
+  target: T,
+  compareFn?: (a: T, b: T) => number
+): number;
 ```
 
 หมายเหตุ:
 - ฟังก์ชัน Search จะคืนค่า `index` ที่หาเจอ หรือ `-1` ถ้าไม่เจอ
-- ถ้าเป็นข้อมูล object ควรส่ง `compareFn` เอง
+- comparator เริ่มต้น (ถ้าไม่ส่ง `compareFn`) รองรับเฉพาะ `Comparable` เช่น `number`, `string`, `boolean`, `Date` เท่านั้น
+- ถ้าเป็นข้อมูล `object` หรือ type อื่น ๆ ควรส่ง `compareFn` เอง และต้องเรียงลำดับ array ล่วงหน้าด้วย `compareFn` เดียวกันก่อนใช้ฟังก์ชัน Search
 
 ## รายละเอียดฟังก์ชัน + ข้อดี/ข้อเสีย
 
