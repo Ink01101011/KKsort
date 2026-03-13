@@ -48,8 +48,9 @@ console.log(index); // 3
 ### รูปแบบฟังก์ชัน
 
 ```typescript
-// Types used โดย ไลบรารี
-type Comparable = string | number | bigint | boolean | Date | object;
+// ตัวอย่างรูปแบบชนิดข้อมูล (type signatures) ของฟังก์ชันในไลบรารี
+// comparator เริ่มต้น (เมื่อไม่ส่ง compareFn) รองรับเฉพาะ:
+// number | string | bigint | boolean | Date
 
 // Sort
 declare function sortFn<T>(
