@@ -92,5 +92,5 @@ declare function searchFn<T extends Comparable>(
 |---|---|---|---|---|
 | `binarySearch` | `@kktestdev/kksort/binary` | เร็วมาก `O(log n)` | ต้องเป็นข้อมูลที่เรียงแล้วเท่านั้น | ไม่แก้ไข array ต้นฉบับ |
 | `linearSearch` | `@kktestdev/kksort/linear` | ใช้ได้กับข้อมูลไม่เรียง | ช้าเมื่อข้อมูลใหญ่ (`O(n)`) | ไม่แก้ไข array ต้นฉบับ |
-| `jumpSearch` | `@kktestdev/kksort/jump` | เร็วกว่า linear บนข้อมูลเรียง | ยังช้ากว่า binary | ต้องเป็นข้อมูลที่เรียงแล้ว |
+| `jumpSearch` | `@kktestdev/kksort/jump` | เร็วกว่า linear บนข้อมูลเรียง | ยังช้ากว่า binary | ต้องเป็นข้อมูลที่เรียงแล้ว, ไม่แก้ไข array ต้นฉบับ |
 | `quickSearch` | `@kktestdev/kksort/quick-search` | เฉลี่ยเร็วกับข้อมูลไม่เรียง | แย่สุด `O(n^2)`, มีการสลับตำแหน่งข้อมูล | แก้ไข array ต้นฉบับ |
