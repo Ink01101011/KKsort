@@ -70,6 +70,7 @@ declare function searchFn<T extends Comparable>(
 - comparator เริ่มต้น (ถ้าไม่ส่ง `compareFn`) รองรับเฉพาะ `number`, `string`, `bigint`, `boolean`, `Date` เท่านั้น
   - สำหรับ `number` จะไม่รองรับค่า `NaN` (ถ้าพบจะ throw error)
   - สำหรับ `Date` จะไม่รองรับค่า Date ที่ไม่ถูกต้อง (เช่น `getTime()` เป็น `NaN`) และจะ throw error ถ้าพบ
+- เมื่อไม่ส่ง `compareFn` ค่าใน `arr` และ `target` ต้องเป็นชนิดเดียวกันทั้งหมด และต้องเป็นหนึ่งในชนิดที่รองรับข้างต้น มิฉะนั้น `defaultCompare` จะ throw `TypeError` (เช่น กรณีมีทั้ง `number` และ `string` ปนกัน)
 - ถ้าเป็นข้อมูล `object` หรือ type อื่น ๆ ต้องส่ง `compareFn` เอง
 - ฟังก์ชัน Search ที่ต้องเรียงลำดับ array ล่วงหน้าก่อนใช้: `binarySearch` และ `jumpSearch` เท่านั้น — `linearSearch` และ `quickSearch` ทำงานได้กับ array ที่ไม่เรียง
 
