@@ -4,7 +4,7 @@
 
 ## Demo / Playground
 
-ลองเล่นและดูการทำงานแบบเดโมได้ที่ `https://kksort-web.vercel.app/`
+ลองเล่นและดูการทำงานแบบเดโมได้ที่ [https://kksort-web.vercel.app/](https://kksort-web.vercel.app/)
 
 Feature ในเว็บเดโม:
 - เลือกอัลกอริทึมที่ต้องการทดสอบ
