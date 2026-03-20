@@ -51,12 +51,16 @@ console.log(index); // 3
 // ตัวอย่าง "pseudo signature" ของชนิดข้อมูล (type signatures) ที่ฟังก์ชันในไลบรารีใช้งาน
 // comparator เริ่มต้น (เมื่อไม่ส่ง compareFn) รองรับเฉพาะ:
 // number | string | bigint | boolean | Date
+//
+// ในไลบรารีจริง T ยังสามารถเป็น object ได้ เมื่อส่ง compareFn เองเข้ามา
 
-type Comparable = number | string | bigint | boolean | Date;
+type DefaultComparable = number | string | bigint | boolean | Date;
+type Comparable = DefaultComparable | object;
 
 // Sort
 declare function sortFn<T extends Comparable>(
   arr: T[],
+  // ถ้า arr เป็น object[] ควรส่ง compareFn เพื่อระบุวิธีเปรียบเทียบ
   compareFn?: (a: T, b: T) => number
 ): T[];
 
@@ -64,6 +68,7 @@ declare function sortFn<T extends Comparable>(
 declare function searchFn<T extends Comparable>(
   arr: T[],
   target: T,
+  // ถ้า arr เป็น object[] ควรส่ง compareFn เพื่อระบุวิธีเปรียบเทียบ
   compareFn?: (a: T, b: T) => number
 ): number;
 ```
