@@ -58,18 +58,33 @@ type DefaultComparable = number | string | bigint | boolean | Date;
 type Comparable = DefaultComparable | object;
 
 // Sort
+// กรณีใช้ชนิดที่รองรับโดย comparator เริ่มต้น: compareFn เป็น optional
 declare function sortFn<T extends Comparable>(
   arr: T[],
   // ถ้า arr เป็น object[] ควรส่ง compareFn เพื่อระบุวิธีเปรียบเทียบ
   compareFn?: (a: T, b: T) => number
 ): T[];
 
+// กรณีใช้ชนิดอื่น ๆ: ต้องส่ง compareFn เองเสมอ
+declare function sortFn<T>(
+  arr: T[],
+  compareFn: (a: T, b: T) => number
+): T[];
+
 // Search
+// กรณีใช้ชนิดที่รองรับโดย comparator เริ่มต้น: compareFn เป็น optional
 declare function searchFn<T extends Comparable>(
   arr: T[],
   target: T,
   // ถ้า arr เป็น object[] ควรส่ง compareFn เพื่อระบุวิธีเปรียบเทียบ
   compareFn?: (a: T, b: T) => number
+): number;
+
+// กรณีใช้ชนิดอื่น ๆ: ต้องส่ง compareFn เองเสมอ
+declare function searchFn<T>(
+  arr: T[],
+  target: T,
+  compareFn: (a: T, b: T) => number
 ): number;
 ```
 
