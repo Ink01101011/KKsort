@@ -1,6 +1,6 @@
 {
   "name": "@kktestdev/kksort",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TypeScript sorting and searching algorithms library with tree-shakable imports and full type safety",
   "keywords": [
     "sort",
