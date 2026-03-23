@@ -36,15 +36,33 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Apply version from workflow input
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' }}
+        run: |
+          npm version "${{ github.event.inputs.version }}" --no-git-tag-version --allow-same-version
+          echo "Using overridden version: $(node -p 'require("./package.json").version')"
       
       - name: Run pre-publish validation
         run: pnpm run pre-publish
       
       - name: Build
         run: pnpm run build
+
+      - name: Verify npm authentication
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "NPM_TOKEN is missing. Add repository secret NPM_TOKEN with publish permission."
+            exit 1
+          fi
+          echo "Publishing package: $(node -p 'require("./package.json").name')"
+          echo "Publishing version: $(node -p 'require("./package.json").version')"
+          npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Publish to npm
-        run: pnpm publish --access public --no-git-checks
+        run: pnpm publish --access public --no-git-checks --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
