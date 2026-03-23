@@ -1,29 +1,29 @@
 # KKsort
 
-ไลบรารี TypeScript สำหรับอัลกอริทึมเรียงลำดับ (Sort) และค้นหา (Search)
+A TypeScript library for sorting and searching algorithms.
 
 ## Demo / Playground
 
-ลองเล่นและดูการทำงานแบบเดโมได้ที่ [https://kksort-web.vercel.app/](https://kksort-web.vercel.app/)
+Try it live at [https://kksort-web.vercel.app/](https://kksort-web.vercel.app/)
 
-Feature ในเว็บเดโม:
-- เลือกอัลกอริทึมที่ต้องการทดสอบ
-- ป้อนข้อมูลและค่าเป้าหมายเองได้
-- ดูผลลัพธ์การทำงานของแต่ละวิธีแบบทันที
+Demo features:
+- Choose the algorithm you want to test
+- Enter custom input data and target values
+- See results from each method instantly
 
-## วิธีติดตั้ง
+## Installation
 
 ```bash
 npm install @kktestdev/kksort
 ```
 
-หรือ
+or
 
 ```bash
 pnpm add @kktestdev/kksort
 ```
 
-## วิธีใช้งาน
+## Usage
 
 ### 1) Sort
 
@@ -45,42 +45,42 @@ const index = binarySearch(sortedNumbers, 7);
 console.log(index); // 3
 ```
 
-### รูปแบบฟังก์ชัน
+### Function Signatures
 
 ```typescript
-// ตัวอย่าง "pseudo signature" ของชนิดข้อมูล (type signatures) ที่ฟังก์ชันในไลบรารีใช้งาน
-// comparator เริ่มต้น (เมื่อไม่ส่ง compareFn) รองรับเฉพาะ:
+// Pseudo type signatures used by functions in this library.
+// The default comparator (when no compareFn is provided) supports only:
 // number | string | bigint | boolean | Date
 //
-// ในไลบรารีจริง T ยังสามารถเป็น object ได้ เมื่อส่ง compareFn เองเข้ามา
+// In practice, T can also be an object when you supply your own compareFn.
 
 type DefaultComparable = number | string | bigint | boolean | Date;
 type Comparable = DefaultComparable | object;
 
 // Sort
-// กรณีใช้ชนิดที่รองรับโดย comparator เริ่มต้น: compareFn เป็น optional
+// When using a type supported by the default comparator: compareFn is optional
 declare function sortFn<T extends Comparable>(
   arr: T[],
-  // ถ้า arr เป็น object[] ควรส่ง compareFn เพื่อระบุวิธีเปรียบเทียบ
+  // If arr is object[], provide compareFn to specify how elements are compared
   compareFn?: (a: T, b: T) => number
 ): T[];
 
-// กรณีใช้ชนิดอื่น ๆ: ต้องส่ง compareFn เองเสมอ
+// For other types: compareFn is always required
 declare function sortFn<T>(
   arr: T[],
   compareFn: (a: T, b: T) => number
 ): T[];
 
 // Search
-// กรณีใช้ชนิดที่รองรับโดย comparator เริ่มต้น: compareFn เป็น optional
+// When using a type supported by the default comparator: compareFn is optional
 declare function searchFn<T extends Comparable>(
   arr: T[],
   target: T,
-  // ถ้า arr เป็น object[] ควรส่ง compareFn เพื่อระบุวิธีเปรียบเทียบ
+  // If arr is object[], provide compareFn to specify how elements are compared
   compareFn?: (a: T, b: T) => number
 ): number;
 
-// กรณีใช้ชนิดอื่น ๆ: ต้องส่ง compareFn เองเสมอ
+// For other types: compareFn is always required
 declare function searchFn<T>(
   arr: T[],
   target: T,
@@ -88,33 +88,33 @@ declare function searchFn<T>(
 ): number;
 ```
 
-หมายเหตุ:
-- ฟังก์ชัน Search จะคืนค่า `index` ที่หาเจอ หรือ `-1` ถ้าไม่เจอ
-- comparator เริ่มต้น (ถ้าไม่ส่ง `compareFn`) รองรับเฉพาะ `number`, `string`, `bigint`, `boolean`, `Date` เท่านั้น
-  - สำหรับ `number` จะไม่รองรับค่า `NaN` (ถ้าพบจะ throw error)
-  - สำหรับ `Date` จะไม่รองรับค่า Date ที่ไม่ถูกต้อง (เช่น `getTime()` เป็น `NaN`) และจะ throw error ถ้าพบ
-- เมื่อไม่ส่ง `compareFn` ค่าใน `arr` และ `target` ต้องเป็นชนิดเดียวกันทั้งหมด และต้องเป็นหนึ่งในชนิดที่รองรับข้างต้น มิฉะนั้น `defaultCompare` จะ throw `TypeError` (เช่น กรณีมีทั้ง `number` และ `string` ปนกัน)
-- ถ้าเป็นข้อมูล `object` หรือ type อื่น ๆ ต้องส่ง `compareFn` เอง
-- ฟังก์ชัน Search ที่ต้องเรียงลำดับ array ล่วงหน้าก่อนใช้: `binarySearch` และ `jumpSearch` เท่านั้น — `linearSearch` และ `quickSearch` ทำงานได้กับ array ที่ไม่เรียง
+Notes:
+- Search functions return the found `index`, or `-1` if not found.
+- The default comparator (when no `compareFn` is provided) supports only `number`, `string`, `bigint`, `boolean`, and `Date`.
+  - `NaN` is not supported for `number` — a `TypeError` will be thrown if encountered.
+  - Invalid `Date` values (where `getTime()` returns `NaN`) are not supported and will throw a `TypeError`.
+- When no `compareFn` is provided, all values in `arr` and `target` must be the same type and one of the supported types above. Mixed types (e.g. `number` and `string` together) will cause `defaultCompare` to throw a `TypeError`.
+- For `object` types or any other unsupported types, you must supply your own `compareFn`.
+- Search functions that require a pre-sorted array: `binarySearch` and `jumpSearch` only — `linearSearch` and `quickSearch` work on unsorted arrays.
 
-## รายละเอียดฟังก์ชัน + ข้อดี/ข้อเสีย
+## Function Details & Trade-offs
 
 ### Sorting Functions
 
-| Func | Import | ข้อดี | ข้อเสีย | หมายเหตุ |
+| Function | Import | Pros | Cons | Notes |
 |---|---|---|---|---|
-| `bubbleSort` | `@kktestdev/kksort/bubble` | เข้าใจง่าย, stable, เหมาะกับงานสอน | ช้า `O(n^2)` เมื่อข้อมูลใหญ่ | ไม่แก้ไข array ต้นฉบับ |
-| `insertionSort` | `@kktestdev/kksort/insertion` | ดีมากกับข้อมูลเกือบเรียงแล้ว, stable | แย่กับข้อมูลใหญ่ (`O(n^2)`) | ไม่แก้ไข array ต้นฉบับ |
-| `selectionSort` | `@kktestdev/kksort/selection` | โค้ดง่าย, swap น้อย | `O(n^2)` ทุกกรณี, ไม่ stable | แก้ไข array ต้นฉบับ |
-| `mergeSort` | `@kktestdev/kksort/merge` | `O(n log n)` แน่นอน, stable | ใช้หน่วยความจำเพิ่ม `O(n)` | ไม่แก้ไข array ต้นฉบับ |
-| `quickSort` | `@kktestdev/kksort/quick-sort` | เร็วในภาพรวม, เหมาะงานทั่วไป | แย่สุดอาจเป็น `O(n^2)` | ไม่แก้ไข array ต้นฉบับ |
-| `heapSort` | `@kktestdev/kksort/heap` | `O(n log n)` แน่นอน, ใช้พื้นที่เพิ่มน้อย | ไม่ stable, มักช้ากว่า quick sort ในงานจริง | แก้ไข array ต้นฉบับ |
+| `bubbleSort` | `@kktestdev/kksort/bubble` | Easy to understand, stable, great for teaching | Slow `O(n²)` on large inputs | Does not mutate original array |
+| `insertionSort` | `@kktestdev/kksort/insertion` | Excellent on nearly-sorted data, stable | Poor on large inputs (`O(n²)`) | Does not mutate original array |
+| `selectionSort` | `@kktestdev/kksort/selection` | Simple code, minimal swaps | `O(n²)` in all cases, not stable | Mutates original array |
+| `mergeSort` | `@kktestdev/kksort/merge` | Guaranteed `O(n log n)`, stable | Extra memory `O(n)` | Does not mutate original array |
+| `quickSort` | `@kktestdev/kksort/quick-sort` | Fast in practice, good general-purpose choice | Worst case `O(n²)` | Does not mutate original array |
+| `heapSort` | `@kktestdev/kksort/heap` | Guaranteed `O(n log n)`, low extra memory | Not stable, often slower than quicksort in practice | Mutates original array |
 
 ### Search Functions
 
-| Func | Import | ข้อดี | ข้อเสีย | หมายเหตุ |
+| Function | Import | Pros | Cons | Notes |
 |---|---|---|---|---|
-| `binarySearch` | `@kktestdev/kksort/binary` | เร็วมาก `O(log n)` | ต้องเป็นข้อมูลที่เรียงแล้วเท่านั้น | ไม่แก้ไข array ต้นฉบับ |
-| `linearSearch` | `@kktestdev/kksort/linear` | ใช้ได้กับข้อมูลไม่เรียง | ช้าเมื่อข้อมูลใหญ่ (`O(n)`) | ไม่แก้ไข array ต้นฉบับ |
-| `jumpSearch` | `@kktestdev/kksort/jump` | เร็วกว่า linear บนข้อมูลเรียง | ยังช้ากว่า binary | ต้องเป็นข้อมูลที่เรียงแล้ว, ไม่แก้ไข array ต้นฉบับ |
-| `quickSearch` | `@kktestdev/kksort/quick-search` | เฉลี่ยเร็วกับข้อมูลไม่เรียง | แย่สุด `O(n^2)`, มีการสลับตำแหน่งข้อมูล | แก้ไข array ต้นฉบับ |
+| `binarySearch` | `@kktestdev/kksort/binary` | Very fast `O(log n)` | Requires a sorted array | Does not mutate original array |
+| `linearSearch` | `@kktestdev/kksort/linear` | Works on unsorted arrays | Slow on large inputs (`O(n)`) | Does not mutate original array |
+| `jumpSearch` | `@kktestdev/kksort/jump` | Faster than linear on sorted data | Still slower than binary search | Requires a sorted array, does not mutate original array |
+| `quickSearch` | `@kktestdev/kksort/quick-search` | Fast on average for unsorted data | Worst case `O(n²)`, rearranges elements | Mutates original array |
