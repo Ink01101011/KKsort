@@ -49,14 +49,22 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Verify package metadata
+      - name: Verify npm authentication
         run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::NPM_TOKEN secret is not set. Go to GitHub repo Settings → Secrets → Actions and add NPM_TOKEN with a valid npm publish token."
+            exit 1
+          fi
           echo "Publishing package: $(node -p 'require("./package.json").name')"
           echo "Publishing version: $(node -p 'require("./package.json").version')"
-          npm pkg get name version
+          npm whoami || { echo "::error::NPM_TOKEN is set but authentication failed (E401). Ensure the token is not expired and has 'publish' permission for the @kktestdev scope."; exit 1; }
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Publish to npm
         run: pnpm publish --access public --no-git-checks --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Create release summary
         run: |
