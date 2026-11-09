@@ -1,7 +1,7 @@
 {
   "name": "@kktestdev/kksort",
   "version": "1.0.4",
-  "description": "TypeScript sorting and searching algorithms library with tree-shakable imports and full type safety",
+  "description": "DEPRECATED: use exsorted instead (https://www.npmjs.com/package/exsorted). TypeScript sorting and searching algorithms library with tree-shakable imports and full type safety",
   "keywords": [
     "sort",
     "sorting",

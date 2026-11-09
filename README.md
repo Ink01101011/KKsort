@@ -1,5 +1,15 @@
 # KKsort
 
+> [!WARNING]
+> **Deprecated:** `@kktestdev/kksort` is no longer maintained. Please use **[exsorted](https://www.npmjs.com/package/exsorted)** instead.
+>
+> ```bash
+> npm uninstall @kktestdev/kksort
+> npm install exsorted
+> ```
+>
+> Source: [github.com/Ink01101011/exsorted](https://github.com/Ink01101011/exsorted)
+
 A TypeScript library for sorting and searching algorithms.
 
 ## Demo / Playground
